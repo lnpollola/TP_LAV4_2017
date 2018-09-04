@@ -5,3 +5,13 @@ npm install --save -dev @angular/cli@latest --> para corregir la versiòn
 --> error angular.js
 ng update @angular/cli
 ng update @angular/core --next --force
+
+archivo angularjson
+      ],
+            "styles": [
+              "src/styles.css"
+              // "node_modules/bootstrap/dist/css/bootstrap.css",
+              // "node_modules/font-awesome/css/font-awesome.css"
+            ],
+npm install bootstrap
+npm install font-awesome
