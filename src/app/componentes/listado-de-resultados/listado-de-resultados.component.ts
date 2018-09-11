@@ -9,7 +9,8 @@ import { Component, OnInit , Input, EventEmitter} from '@angular/core';
 export class ListadoDeResultadosComponent implements OnInit {
  @Input()
  listado: Array<any>;
-
+ @Input()
+ saludo: string;
 
   constructor() {
    }
@@ -20,6 +21,7 @@ export class ListadoDeResultadosComponent implements OnInit {
 
   ver() {
     console.info(this.listado);
+    console.info(this.saludo);
   }
 
 }
