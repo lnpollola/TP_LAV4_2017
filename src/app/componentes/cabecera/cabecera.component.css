@@ -1,11 +1,10 @@
 .panel
 {
-    height: 200px;
-    background-image: url("/TP_LAV4_2017/assets/imagenes/cabecera.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    background-image: url("/src/assets/imagenes/cabecera_pacman.jpg"); 
+    background-position: right;
+    background-repeat: repeat;
+    background-size: contain ;
+ 
 }
 
 
