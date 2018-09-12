@@ -1,27 +1,20 @@
-<nav class="panel navbar navbar-dark bg-dark mb-5">
-  <a class="navbar-brand" href="/">Sala de Juegos</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="/QuienSoy" >¿Quien Soy? <i class="fa fa-user"></i></a>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Sala de Juegos</a>
+    <button class="navbar-toggler" type="button"
+        (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse"
+    [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+        <li><a class="nav-item nav-link active" routerLink="/QuienSoy" >¿Quien Soy? <i class="fa fa-user"></i></a></li>
         <li><a class="nav-item nav-link" routerLink="/Registro"><span class="glyphicon glyphicon-user"></span>Registrarse</a></li>
         <li><a class="nav-item nav-link" routerLink="/Login"><span class="glyphicon glyphicon-log-in"></span> Ingresar</a></li>
-        
-      <a class="nav-item nav-link" href="#">About</a>
-      <a class="nav-item nav-link" href="#">Contact</a>
-    </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
+    </ul>
     <div class="navbar-nav">
-        <a class="nav-item nav-link" href="https://github.com/lnpollola"target="_blank">En GitHub <i class="fa fa-github"></i></a> -->
-      <!-- <a class="nav-item nav-link" href="https://github.com/beeman" target="_blank">
-        <i class="fa fa-github"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://twitter.com/beeman_nl" target="_blank">
-        <i class="fa fa-twitter"></i>
-      </a>
-      <a class="nav-item nav-link" href="https://medium.com/@beeman" target="_blank">
-        <i class="fa fa-medium"></i> -->
-      
+        <a class="nav-item nav-link" href="https://github.com/lnpollola"target="_blank">En GitHub <i class="fa fa-github"></i></a>
+   
     </div>
   </div>
 </nav>

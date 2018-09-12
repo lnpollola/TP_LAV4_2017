@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CabeceraComponent implements OnInit {
 
   constructor() { }
-
+  navbarOpen = false;
   ngOnInit() {
   }
-
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 }
