@@ -55,6 +55,8 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.component';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -87,6 +89,7 @@ import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.co
     BrowserModule,
     FormsModule,
     RuteandoModule,
+    MatDividerModule,
     MatCardModule,
     MatGridListModule,
     HttpModule,

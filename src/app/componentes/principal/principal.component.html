@@ -1,17 +1,12 @@
 <app-cabecera>  </app-cabecera>
 
 
-<mat-grid-list cols="4" style="padding:10px">
+<mat-grid-list cols="2" rows="2" style="padding:10px" rowHeight="4:3" >
+  <mat-grid-tile role="listitem">
+  <!-- TARJETA 1-->
   <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-      
-  
     <div class="card-header">
-
         <div  class="ratio img-responsive img-circle" style="background-image: url(./assets/imagenes/saladejuegos.png);"></div>
-
-
-
-        <!-- <img src="./assets/imagenes/saladejuegos.png" class="media-object imagenDeMenu" > -->
     </div>
     <a routerLink="/Juegos">
     <div class="card-body">
@@ -20,82 +15,51 @@
       <p class="card-text text-white">El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>
     </div>
     </a>   
-  
-
   </div>
-
-</mat-grid-list>
-
-<div class="container" >
-    <ul class="list-group">
-        <li class="list-group-item list-group-item-action active">
-           
-                <div class="media-body">
-                    <div class="hero-text weighed weight1" >
-                        <h4 >Menú Principal</h4>
-                    </div>
-                 </div>
-               
-             
-          </li>
-        <li class="list-group-item list-group-item-success">
-          <a routerLink="/Juegos">
-            <div class="media">
-              <div class="media-left">
-                    <img src="./assets/imagenes/saladejuegos.png" class="media-object imagenDeMenu" >
-              </div>
-              <div class="media-body">
-                <h4 class="media-heading">Juegos</h4>
-                <p>El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-
-        <li class="list-group-item list-group-item-info">
-            <a routerLink="/Listado">
-              <div class="media">
-                  <div class="media-left">
-                      <img src="./assets/imagenes/listado.jpg" class="media-object imagenDeMenu" >
-                    </div>
-                <div class="media-body">
-                  <h4 class="media-heading">Listados de resultados</h4>
-                  <p>Los listados de los resultados con ordenamiento y busqueda</p>
-                </div>
-                
-              </div> 
-            </a>
-          </li>
-        <li class="list-group-item list-group-item-danger">
-          <a routerLink="/Configuracion">
-            <div class="media">
-                <div class="media-left">
-                    <img src="./assets/imagenes/Configuracion.png" class="media-object imagenDeMenu" >
-                  </div>
-              <div class="media-body">
-                <h4 class="media-heading">Configuraci&oacute;n</h4>
-                <p>Ajustes de la aplicacion y los métodos de autentificación</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-        <li class="list-group-item list-group-item-warning">
-          <a routerLink="/Jugadores">
-            <div class="media">
-                <div class="media-left">
-                    <img src="./assets/imagenes/jugadores.png" class="media-object imagenDeMenu" >
-                  </div>
-              <div class="media-body">
-                <h4 class="media-heading">Jugadores</h4>
-                <p>Listado de jugadores</p>
-              </div>
-             
-            </div> 
-          </a>
-        </li>
-       
+</mat-grid-tile>
+  <!-- TARJETA 2-->
+  <mat-grid-tile role="listitem">
+  <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+          <div  class="ratio img-responsive img-circle" style="background-image: url(./assets/imagenes/listado.jpg);"></div>
+      </div>
+      <a routerLink="/Juegos">
+      <div class="card-body">
+        <h5 class="card-title text-white ">Listado de Resultados</h5>
         
-      </ul>
-</div>
+        <p class="card-text text-white">Los listados de los resultados con ordenamiento y busqueda.</p>
+      </div>
+      </a>   
+    </div>
+  </mat-grid-tile>
+    <!-- TARJETA 3-->
+    <mat-grid-tile role="listitem">
+  <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+          <div  class="ratio img-responsive img-circle" style="background-image: url(./assets/imagenes/Configuracion.png);"></div>
+      </div>
+      <a routerLink="/Juegos">
+      <div class="card-body">
+        <h5 class="card-title text-white ">Configuraci&oacute;n</h5>
+        
+        <p class="card-text text-white">Ajustes de la aplicacion y los métodos de autentificación</p>
+      </div>
+      </a>   
+    </div>
+  </mat-grid-tile>
+    <!-- TARJETA 4-->
+    <mat-grid-tile role="listitem">
+  <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+      <div class="card-header">
+          <div  class="ratio img-responsive img-circle" style="background-image: url(./assets/imagenes/jugadores.png);"></div>
+      </div>
+      <a routerLink="/Juegos">
+      <div class="card-body">
+        <h5 class="card-title text-white ">Jugadores</h5>
+        
+        <p class="card-text text-white">Listado de Jugadores.</p>
+      </div>
+      </a>   
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
