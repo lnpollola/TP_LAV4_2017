@@ -8,6 +8,7 @@ import { LoginComponent } from './componentes/login/login.component';
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
 
+import {MatCardModule} from '@angular/material/card';
 // import { AccordionModule } from 'ngx-bootstrap';
 // agrego las clases para utilizar ruteo
 import { RouterModule, Routes } from '@angular/router';
@@ -39,7 +40,7 @@ const MiRuteo = [{path: 'error' , component: ErrorComponent},
 {path: '**' , component: ErrorComponent} ];
 */
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 import { JuegoServiceService } from './servicios/juego-service.service';
 import { ListadosComponent } from './componentes/listados/listados.component';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
@@ -86,6 +87,8 @@ import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.co
     BrowserModule,
     FormsModule,
     RuteandoModule,
+    MatCardModule,
+    MatGridListModule,
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'

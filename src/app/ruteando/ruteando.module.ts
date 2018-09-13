@@ -22,6 +22,9 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { MayorOMenorComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 // declaro donde quiero que se dirija
 const MiRuteo = [

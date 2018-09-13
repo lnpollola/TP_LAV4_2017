@@ -1,26 +1,27 @@
 <app-cabecera>  </app-cabecera>
-<!-- 
-<hr>
-<div class="row">
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'primary'" [icon]="'fa-comments'" [count]="26" [label]="'New Comments!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="12" [label]="'New task!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'success'" [icon]="'fa-shopping-cart'" [count]="124" [label]="'New Orders!'" ></app-stat>
-    </div>
-    <div class="col-xl-3 col-lg-6">
-        <app-stat [bgClass]="'danger'" [icon]="'fa-support'" [count]="13" [label]="'New Tickets!'"></app-stat>
-    </div>
-</div>
-<hr /> -->
 
+
+<mat-grid-list cols="4" style="padding:10px">
+  <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+      
+  
+    <div class="card-header">
+        <img src="./assets/imagenes/saladejuegos.png" class="media-object imagenDeMenu" >
+    </div>
+    <a routerLink="/Juegos">
+    <div class="card-body">
+      <h5 class="card-title text-white ">Juegos</h5>
+      
+      <p class="card-text text-white">El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>
+    </div>
+    </a>   
+  
+
+  </div>
+
+</mat-grid-list>
 
 <div class="container" >
-
-
     <ul class="list-group">
         <li class="list-group-item list-group-item-action active">
            
@@ -46,6 +47,7 @@
             </div> 
           </a>
         </li>
+
         <li class="list-group-item list-group-item-info">
             <a routerLink="/Listado">
               <div class="media">
