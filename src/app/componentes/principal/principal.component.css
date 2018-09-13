@@ -31,6 +31,19 @@ height: 70px;
     border-radius: 0;
 }
 
+.menuEntero
+{
+    margin-top: 3%;
+    margin-left: 8%;
+    margin-right: 5%;
+}
+
+.tarjetaMenu
+{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 .ratio {
     background-position: center center;
     background-repeat: no-repeat;
