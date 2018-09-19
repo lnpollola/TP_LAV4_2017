@@ -18,14 +18,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
   private subscription: Subscription;
   ngOnInit() {
   }
-
    constructor() {
      this.ocultarVerificar=true;
      this.Tiempo=5; 
     this.nuevoJuego = new JuegoAgilidad();
     console.info("Inicio agilidad");  
   }
-
   NuevoJuego() {
     this.ocultarVerificar=false;
    this.repetidor = setInterval(()=>{ 
@@ -45,6 +43,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
   {
     this.ocultarVerificar=false;
     clearInterval(this.repetidor);
+   
+
+   
   }  
 
 }
