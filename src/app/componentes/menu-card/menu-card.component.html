@@ -1,5 +1,5 @@
 <div class="container-fluid" >
-  <div class="row">
+  <div class="ratio ">
     <div class="card text-white bg-primary mb-3">
         <div class="card-header">
       <img class="img-thumbnail"   src="./assets/imagenes/cerebro.jpg" alt="Avatar" style="width:100%">
@@ -12,28 +12,46 @@
       </div>
     </div>
   
-    <div class="card text-white bg-dark mb-3">
-      <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
-      <h1>Piedra Papel o Tijera</h1>
-      <p class="title">Juega contra la máquina</p>
-      <p>UTN FRA </p>
-      <p>           <button class="button"  (click)="Juego('PPT')">Jugar</button></p>
+      <div class="card text-white bg-danger mb-3">
+        <div class="card-header">
+            <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
+            <h1>Piedra Papel o Tijera</h1>
+      <div class="card-body">
+          <h5 class="card-title text-white ">Juega contra la máquina</h5>
+          <p class="card-text text-white">UTN FRA</p>
+      </div>
+      <div><br><br></div>
+      <p>  <button class="button"  (click)="Juego('PPT')">Jugar</button> </p>
+      </div>
     </div>
 
     <div class="card text-white bg-warning mb-3">
-      <img  class="img-thumbnail"  src="./assets/imagenes/adivina.png" alt="Avatar" style="width:100%">
-      <h1>Adivina el número secreto</h1>
-      <p class="title">Juego de estrategia</p>
-      <p>UTN FRA </p>
-      <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
+        <div class="card-header">
+      <img class="img-thumbnail"   src="./assets/imagenes/adivina.png" alt="Avatar" style="width:100%">
+      <h1>Adivina el número secreto </h1>
+      <div class="card-body">
+          <h5 class="card-title text-white ">Juego de estrategia</h5>
+          <p class="card-text text-white">UTN FRA</p>
+      </div>
+      <div><br></div>
+      <p>  <button class="button"  (click)="Juego('Adivina')">Jugar</button> </p>
+      </div>
     </div>
 
     <div class="card text-white bg-success mb-3">
-        <img class="img-thumbnail" src="./assets/imagenes/MayorOMenor.jpg" alt="Avatar" style="width:100%">
-        <h1>¿Mayor o Menor?</h1>
-        <p class="title">Próxima carta. ¿Mayor o Menor?</p>
-        <p>UTN FRA </p>
-        <p>           <button class="button"  (click)="Juego('MayorOMenor')">Jugar</button></p>
+        <div class="card-header">
+      <img class="img-thumbnail"   src="./assets/imagenes/MayorOMenor.jpg" alt="Avatar" style="width:100%">
+      <h1>¿Mayor o Menor? </h1>
+      <div class="card-body">
+          <h5 class="card-title text-white ">Próxima carta. ¿Mayor o Menor?</h5>
+          <p class="card-text text-white">UTN FRA</p>
       </div>
+      <div><br></div>
+      <div><br></div> 
+      <p>  <button class="button"  (click)="Juego('MayorOMenor')">Jugar</button> </p>
+      </div>
+     
     </div>
+
+    
   </div>
