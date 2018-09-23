@@ -10,16 +10,16 @@ import { JuegoServiceService } from '../../servicios/juego-service.service';
 })
 export class ListadoComponent implements OnInit {
   public listadoParaCompartir: Array<any>;
-  public holaVar = "hola";
+
    miServicioJuego:JuegoServiceService
 
   constructor(servicioJuego:JuegoServiceService) {
     this.miServicioJuego = servicioJuego;
-    this.holaVar = "sarasa";
+
   }
   
   ngOnInit() {
-    console.log(this.holaVar);
+ 
   }
 
   llamaService(){

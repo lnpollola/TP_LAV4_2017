@@ -1,0 +1,11 @@
+<button  *ngIf="botonNuevoJuego" (click)="NuevoJuego()"  class="btn btn-info btn-lg">Jugar</button>
+
+<div *ngIf="divEleccionUsuario">
+  <button   (click)="Seleccion('piedra')"  class="btn btn-info btn-lg">Piedra</button>
+  <button   (click)="Seleccion('papel')"  class="btn btn-info btn-lg">Papel</button>
+  <button   (click)="Seleccion('tijera')"  class="btn btn-info btn-lg">Tijera</button>        
+</div>
+
+<div>
+    {{resultado}}
+</div>

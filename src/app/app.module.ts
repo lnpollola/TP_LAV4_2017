@@ -56,6 +56,7 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.component';
 import {MatDividerModule} from '@angular/material/divider';
+import { PiedraPapelTijeraComponent } from './componentes/ppt/ppt.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import {MatDividerModule} from '@angular/material/divider';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    MayorOMenorComponent
+    MayorOMenorComponent,
+    PiedraPapelTijeraComponent
   ],
   imports: [
     BrowserModule,
