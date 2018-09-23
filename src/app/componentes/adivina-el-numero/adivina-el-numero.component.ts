@@ -8,6 +8,7 @@ import { JuegoAdivina } from '../../clases/juego-adivina'
   styleUrls: ['./adivina-el-numero.component.css']
 })
 export class AdivinaElNumeroComponent implements OnInit {
+
  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
 
   nuevoJuego: JuegoAdivina;
@@ -17,36 +18,41 @@ export class AdivinaElNumeroComponent implements OnInit {
  
   constructor() { 
     this.nuevoJuego = new JuegoAdivina();
-    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);  
+    this.contador=0;
+    this.nuevoJuego.generarnumero();
+    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto+" - Contador; "+this.contador);  
     this.ocultarVerificar=false;
   }
+
   generarnumero() {
-    this.nuevoJuego.generarnumero();
-    this.contador=0;
-  }
+    // this.nuevoJuego.generarnumero();
+    // this.contador=0;
+    this.constructor();
+  } 
   verificar()
   {
     this.contador++;
+    console.info("El contador va: :",this.contador);  
     this.ocultarVerificar=true;
-    console.info("numero Secreto:",this.nuevoJuego.gano);  
+
     if (this.nuevoJuego.verificar()){
       
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
-      this.nuevoJuego.numeroSecreto=0;
+      this.contador = 0;
 
     }else{
 
       let mensaje:string;
       switch (this.contador) {
         case 1:
-          mensaje="No, intento fallido, animo";
+          mensaje="1er intento fallido, animo.";
           break;
           case 2:
-          mensaje="No,Te estaras Acercando???";
+          mensaje="¿Te estaras Acercando?";
           break;
           case 3:
-          mensaje="No es, Yo crei que la tercera era la vencida.";
+          mensaje="No es. Crei que la tercera era la vencida.";
           break;
           case 4:
           mensaje="No era el  "+this.nuevoJuego.numeroIngresado;
@@ -55,18 +61,20 @@ export class AdivinaElNumeroComponent implements OnInit {
           mensaje=" intentos y nada.";
           break;
           case 6:
-          mensaje="Afortunado en el amor";
+          mensaje="Afortunado en el amor.";
           break;
       
         default:
-            mensaje="Ya le erraste "+ this.contador+" veces";
+            mensaje="Ya le erraste "+ this.contador+" veces.";
           break;
       }
       this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
      
 
     }
-    console.info("numero Secreto:",this.nuevoJuego.gano);  
+    // console.info("numero Secreto:",this.nuevoJuego.gano);  
+    console.info("¿Gano?",this.nuevoJuego.gano);  
+    return this.nuevoJuego.gano;
   }  
 
   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {

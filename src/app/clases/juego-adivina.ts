@@ -1,12 +1,12 @@
 import { Juego } from '../clases/juego'
 
 export class JuegoAdivina extends  Juego {
-    numeroSecreto: number = 0;
-    numeroIngresado = 0;
+
+    numeroSecreto: number;
+    numeroIngresado:number;
+
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
         super("Adivina el número",gano,jugador);
-     
-    
       
       }
     public verificar() {
@@ -21,7 +21,7 @@ export class JuegoAdivina extends  Juego {
      }
      public generarnumero() {
         this.numeroSecreto = Math.floor((Math.random() * 100) + 1);
-        console.info('numero Secreto:' + this.numeroSecreto);
+        // console.info('numero Secreto:' + this.numeroSecreto);
         this.gano = false;
       }
       public retornarAyuda() {
