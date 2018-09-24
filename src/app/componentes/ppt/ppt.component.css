@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+
+*{
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.pptImagen
+{
+    height: 150px;
+    width: 125px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 17%;
+    margin-right: 5px;
+    margin-bottom: 4px;
+    overflow:hidden;
+}
+
+
+.pptImagen:hover{-webkit-transform:scale(1.1);transform:scale(1.1);}
+.pptImagen:active{filter: opacity(.5);}
+
+.grupo-fotos
+{
+    margin-left: 27%;
+}
+.btn-ppt
+{
+    height: 15%;
+    width: 15%;
+    background-color:white;
+    padding-left: 1px;
+    padding-right: 1px;
+
+}
+
+.btn-jugar
+{
+    background-color: rgba(182, 255, 10, 0.89);
+    width: 420px;
+    margin-left: 35%;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    
+}
+
+body 
+{
+    background-color: rgb(81, 162, 228);
+    background-image: url("../../../assets/imagenes/fondo.gif");  
+    margin-bottom: 0%; 
+}
+.container{
+    background-color: rgb(233, 235, 236);
+}
+
+   
+
+
+.seleccion{
+    width: 100%;
+    height: 25%; 
+    border-width: 1px;
+    border-color: antiquewhite;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;  
+    
+
+}
+.seleccion h1
+{
+    position: relative;
+    
+    background-color: black;
+    color: red;
+    font-size: 200px;
+    margin-bottom: 2px;
+   
+
+}
+
+label{
+    color: rgb(91, 186, 230);
+    
+    float: left;
+    margin-bottom: 0px;
+    margin-top: 1px;
+    
+    
+}
+.container-img{
+    position: relative;
+    width: 45%;
+    height: 300px;
+    display: block;
+    float: left;
+    border-style: solid;
+    border-color: rgb(91, 186, 230);;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    margin-left: 5px;
+    margin-right: auto;
+    overflow: hidden;
+    
+}
+
+.container-img img{
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    float: left;
+    position: relative;
+    margin-top: 25px;
+    margin-left: 1px;
+    width: 40%;
+    height: 90%;
+
+
+}
+.puntos
+{
+    color: red;
+    text-align: center;
+    float: right;
+    position: relative;
+    background-color: black;
+    height: 90%;
+    width: 40%;
+    margin-top: 25px;
+    margin-bottom: 2px;
+    padding-top: 2px;
+   
+
+    
+}

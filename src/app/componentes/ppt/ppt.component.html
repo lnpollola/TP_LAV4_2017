@@ -1,11 +1,59 @@
-<!-- <button  *ngIf="botonNuevoJuego" (click)="NuevoJuego()"  class="btn btn-info btn-lg">Jugar</button>
-
-<div *ngIf="divEleccionUsuario">
-  <button   (click)="Seleccion('piedra')"  class="btn btn-info btn-lg">Piedra</button>
-  <button   (click)="Seleccion('papel')"  class="btn btn-info btn-lg">Papel</button>
-  <button   (click)="Seleccion('tijera')"  class="btn btn-info btn-lg">Tijera</button>        
-</div>
-
-<div>
-    {{resultado}}
-</div> -->
+<body>
+  
+  <div class="container">
+  
+  
+  <h1>
+      Piedra Papel Tijera
+    </h1>
+    
+    <div class="container panel-seleccion">
+    
+     <div class="grupo-fotos">
+      <img class="pptImagen" (click)="Jugar('piedra')" src="../assets/imagenes/piedra.png" alt="">
+    
+    
+   
+      <img class="pptImagen" (click)="Jugar('papel')" src="../assets/imagenes/papel.png" alt="">
+    
+    
+  
+      <img class="pptImagen" (click)="Jugar('tijera')" src="../assets/imagenes/tijera.png" alt="">
+    
+    </div>
+    
+    <div class="seleccion row">
+      
+        <div class="container-img">
+           <label for="MiSeleccion">Mi seleccion</label>
+    <img id="MiSeleccion" src="../assets/imagenes/{{seleccionUsuario}}.png" alt="">
+  
+    <div class="puntos"><h1>{{puntosUsuario}}</h1></div>
+   
+  </div>
+  
+    
+    <div class="container-img">
+        <label for="seleccionPc">Seleccion pc</label>
+      <img id="seleccionPc" src="../assets/imagenes/{{seleccionPc}}.png" alt="">
+      
+     <div class="puntos"><h1>{{puntosPc}}</h1></div>
+  
+  </div>
+  
+  </div>
+  <br>
+  <div class="mensaje"  > <h1>{{mensaje}}</h1></div>
+  
+  
+  
+      <button class="btn btn-jugar" (click)="NuevoJuego()"> Jugar de Nuevo</button>
+    
+    
+    </div>
+  
+  </div>
+  </body>
+  
+  
+    

@@ -22,7 +22,7 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { MayorOMenorComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
-import { PiedraPapelTijeraComponent } from '../componentes/ppt/ppt.component';
+import { PptComponent } from '../componentes/ppt/ppt.component';
 
 
 
@@ -47,7 +47,7 @@ children:
       {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent},
       {path: 'MayorOMenor' , component: MayorOMenorComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'PPT' , component: PiedraPapelTijeraComponent}
+      {path: 'PPT' , component: PptComponent}
 
     ]
 },

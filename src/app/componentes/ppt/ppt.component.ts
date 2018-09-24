@@ -1,119 +1,68 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import {JuegoPiedraPapelTijera} from "../../clases/juego-piedra-papel-tijera";
 
 @Component({
-  selector: 'app-piedra-papel-tijera',
+  selector: 'app-ppt',
   templateUrl: './ppt.component.html',
   styleUrls: ['./ppt.component.css']
 })
-export class PiedraPapelTijeraComponent implements OnInit {
+export class PptComponent implements OnInit {
 
-  eleccion : string;
-  botonNuevoJuego : boolean;
-  divEleccionUsuario : boolean;
-  decisionOrdenador : string;
-  resultado: string;
+  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
+  nuevoPpt:JuegoPiedraPapelTijera;
+  seleccionUsuario:string;
+  seleccionPc:string;
+  puntosUsuario=0;
+  puntosPc=0;
+  mensaje:string=" ";
 
   constructor() {
-    this.botonNuevoJuego = true;
-    this.divEleccionUsuario = false;
-
+    this.nuevoPpt=new JuegoPiedraPapelTijera()
    }
 
-  ngOnInit() {
-  
-  }
-
-  Seleccion (eleccion){ 
-    this.divEleccionUsuario = false;
-    
-    switch(eleccion){
-        case 'piedra':
-          this.eleccion = eleccion;
-          break;
-
-        case 'papel':
-          this.eleccion = eleccion;
-          break;
-
-        case 'tijera':
-          this.eleccion = eleccion;
-          break;
-    }
-    
-    this.Definicion();
-  }
-
-
-  DecisionOrdenador() {
-    var numero =  Math.floor((Math.random()*3)+1); 
-    
-    var respuesta;
-    
-      if (numero == 1) {
-        respuesta = "piedra";
-      } else if (numero == 2) {
-        respuesta = "papel";
-      } else {
-        respuesta = "tijera";
+   public Jugar(seleccion)
+   {
+     if(!this.nuevoPpt.verificar())
+     {
+      this.seleccionUsuario=seleccion;
+      this.nuevoPpt.Jugar(seleccion);
+      this.puntosPc=this.nuevoPpt.puntosPc;
+      this.puntosUsuario=this.nuevoPpt.puntosJugador;
+      this.seleccionPc=this.nuevoPpt.seleccionPc;
+      if(this.nuevoPpt.verificar())
+      {
+        this.TerminarJuego();
       }
-        return respuesta;
-    };
-
-
-  NuevoJuego(){
-    this.botonNuevoJuego = false;  
-    this.divEleccionUsuario = true;
-    this.resultado = undefined;
-  };
+     }else{
+       this.mensaje="El juego esta terminado, volve a empezar para seguir jugando!."
+     }
       
+   }
+ 
+   public NuevoJuego()
+   {
+     this.nuevoPpt= new JuegoPiedraPapelTijera();
+     this.puntosPc=this.nuevoPpt.puntosPc;
+     this.puntosUsuario=this.nuevoPpt.puntosJugador;
+     this.mensaje=" ";
+     this.seleccionUsuario="";
+     this.seleccionPc="";
+   }
+   private TerminarJuego(){
+    this.enviarJuego.emit(this.nuevoPpt);
+    if(this.nuevoPpt.gano)
+    {
+      this.mensaje=" Bien, Ganaste!!";
+    }
+    else{
+      this.mensaje="Que mal, perdiste, segui participando...";
+    }
+   }
 
-  Definicion(){ 
 
-        this.decisionOrdenador = this.DecisionOrdenador();
+  ngOnInit() {
+  }
 
-    
-        if (this.eleccion == this.decisionOrdenador) {
-            this.resultado= "Empate, los dos eligieron " +this.eleccion;
-                  } else {
-            if (this.eleccion == "piedra" && this.decisionOrdenador == "papel") {
-              this.resultado= ""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
-            } 
-            if (this.eleccion == "piedra" && this.decisionOrdenador == "tijera") {
-              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
-            } 
-            if (this.eleccion == "papel" && this.decisionOrdenador == "tijera") { 
-              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
-            }
-            if (this.eleccion == "papel" && this.decisionOrdenador == "piedra"){
-              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
-            }
-            if (this.eleccion == "tijera" && this.decisionOrdenador == "piedra") {
-              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el ordenador.";
-                }
-            if (this.eleccion == "tijera" && this.decisionOrdenador == "papel") {
-              this.resultado=""+this.eleccion +" vs " +this.decisionOrdenador + ", gana el usuario";
-            }
-        }
-        
-        console.log(this.resultado);
-        this.botonNuevoJuego = true;
-     
-      }  
 
-    //logicaJuego(this.eleccion, this.decisionOrdenador);
-};
-    
-  
- 
- 
- 
- 
- 
- 
- 
- 
-  
 
-  
-
+}
