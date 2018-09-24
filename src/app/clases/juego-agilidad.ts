@@ -7,11 +7,12 @@ export class JuegoAgilidad extends Juego {
   arrayOperandos:Array<string> = ["+","-","*","/"];
   operando:string;
   eleccionUsuario:number;
-   solucion:number;
+  solucion:number;
 
    constructor() {
 
      super();
+     this.cargarSolucion();
 
     }
 
@@ -41,11 +42,19 @@ export class JuegoAgilidad extends Juego {
   }
  
   verificar(): boolean{
+    console.info("Seleccion usuario:", this.eleccionUsuario);
+    console.info("Solucion:", this.solucion);
 
-    if (this.eleccionUsuario === this.solucion)
+    if ( this.eleccionUsuario == this.solucion)
+      {
+       this.gano = true;
       return true;
-    else 
+    }
+      else {
+        this.gano = false;
       return false;
-
+     
+    }
+  
   }
 }

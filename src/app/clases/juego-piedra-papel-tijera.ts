@@ -2,7 +2,7 @@ import { Juego } from "./juego";
 
 export class JuegoPiedraPapelTijera extends Juego {
 
-    public seleccionUsuario;
+  public seleccionUsuario="default";
   public seleccionPc;
   public contadorJugadas=0;
   public puntosJugador=0;
@@ -33,8 +33,6 @@ export class JuegoPiedraPapelTijera extends Juego {
 
 private Elegir()
 {
-  
-  
    var seleccion= Math.round(Math.random() *10 );
    console.log(seleccion);
    if(seleccion >= 0 && seleccion <=3)
@@ -49,27 +47,6 @@ private Elegir()
    {
      this.seleccionPc="tijera";
    }
-   /*
-  var criterio=Math.round(Math.random());
-
-    if(criterio==0)
-    {
-      seleccion=Math.round(Math.random())*-1;
-    }
-
-    else{
-      seleccion = Math.round(Math.random());
-    }
-    
-    switch(seleccion)
-    {
-      case -1: this.seleccionPc="piedra";
-      break;
-      case 0: this.seleccionPc="papel";
-      break;
-      case 1: this.seleccionPc="tijera";
-      break;
-    }*/
 }
 
 public Jugar(seleccionUsuario:string)
