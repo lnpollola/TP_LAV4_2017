@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
 
 
 *{
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .pptImagen
@@ -125,7 +124,7 @@ label{
 }
 .puntos
 {
-    color: red;
+    color:dodgerblue ;
     text-align: center;
     float: right;
     position: relative;
