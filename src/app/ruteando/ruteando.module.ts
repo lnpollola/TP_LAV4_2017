@@ -23,7 +23,7 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { MayorOMenorComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
-
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
 
 
 // declaro donde quiero que se dirija
@@ -47,7 +47,8 @@ children:
       {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent},
       {path: 'MayorOMenor' , component: MayorOMenorComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'PPT' , component: PptComponent}
+      {path: 'PPT' , component: PptComponent},
+      {path: 'Tateti' , component: TatetiComponent}
 
     ]
 },

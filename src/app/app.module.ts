@@ -57,6 +57,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { PptComponent } from './componentes/ppt/ppt.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import { PptComponent } from './componentes/ppt/ppt.component';
     InputJugadoresComponent,
     SexoPipe,
     MayorOMenorComponent,
-    PptComponent
+    PptComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,

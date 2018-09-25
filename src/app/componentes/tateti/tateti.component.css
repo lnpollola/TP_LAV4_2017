@@ -1,0 +1,37 @@
+
+.juego{
+    position: relative;
+    display: inline-flex;
+    height: 100%;
+    width: 100%;
+}
+.tablero{
+    height: 50%;
+    width: 50%;
+    margin-left: 20%;
+}
+.casilla-tateti{
+
+    height: 150px;
+    width: 150px;
+    border-style: solid;
+    border: width 2px;
+    background-color: cadetblue;
+
+
+}
+.info{
+    position: relative;
+    float: right;
+
+}
+.imgInfo{
+    height: 50%;
+    width: 60%;
+}
+.imgCasilla{
+    height: 60%;
+    width: auto;
+    margin: 20% 10%;
+    
+}
