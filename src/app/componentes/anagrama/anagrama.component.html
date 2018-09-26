@@ -9,10 +9,27 @@
       <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.pista}}</h3>
       <input type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="Ingrese respuesta" >
       <h3></h3>
-      <button [hidden]="!ocultarVerificar" class="btn2 blue" (click)="GenerarNuevo()">Generar Palabra</button>
+
+
+      <button [hidden]="!ocultarVerificar" class="btn btn-info btn-lg" (click)="GenerarNuevo()">Generar Palabra</button>
+      <br>
+      <h2><button [hidden]="ocultarVerificar" (click)="Verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
+     
+
+      <h5  [hidden]="miJuego.respuesta" >
+      <p *ngIf="ocultarVerificar==false">
+      <i class="fa fa-spinner fa-spin"></i>
+      Ingrese palabra 
+      <i class="fa fa-spinner fa-spin"></i>
+      </p>
+      </h5>
+      <h3 *ngIf="miJuego.gano">¡Usted adivino la palabra!  </h3>
+      <h5 *ngIf="ocultarVerificar==false" >
       
-      <button [hidden]="ocultarVerificar" class="btn2 purple"(click)="Verificar()">Validar</button>
-      <h3></h3>
+      
+      <h3  *ngIf="!miJuego.gano" >Usted aún no gano, reintente. </h3>
+      </h5>
+
   </div>
   </form>
   
@@ -20,4 +37,4 @@
   
   
   
-  
+  <!-- [hidden]="!miJuego.gano" -->

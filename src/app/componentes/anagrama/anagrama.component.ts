@@ -1,23 +1,8 @@
-/*import { Component, OnInit } from '@angular/core';
-
-@Component({
-  selector: 'app-anagrama',
-  templateUrl: './anagrama.component.html',
-  styleUrls: ['./anagrama.component.css']
-})
-export class AnagramaComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
-*/
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import { JuegoAnagrama } from '../../clases/juego-anagrama';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-anagrama',
@@ -60,17 +45,19 @@ export class AnagramaComponent implements OnInit {
  Verificar(){
    if(this.miJuego.verificar())
    {
+    this.ocultarVerificar=true;
     this.enviarJuego.emit(this.miJuego);
     console.log("ok verificado");
      console.log(this.miJuego);
-     this.ocultarVerificar=true;
+    
    }
    else 
    {
+    this.ocultarVerificar=false;
    this.enviarJuego.emit(this.miJuego);
    console.log("no verificado");
     console.log(this.miJuego);
-    this.ocultarVerificar=true;
+    
    }
  }
 
