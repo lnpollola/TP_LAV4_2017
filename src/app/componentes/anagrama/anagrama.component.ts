@@ -24,7 +24,7 @@ export class AnagramaComponent implements OnInit {
     Mensajes:string;
 
   constructor() {
-    
+    this.miJuego = new JuegoAnagrama();
     this.miJuego.jugador = "nn"
     // this.miJuego.desordenada = "Presiona el Boton";
     this.ocultarVerificar=true;
