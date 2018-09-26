@@ -24,10 +24,9 @@ export class AnagramaComponent implements OnInit {
     Mensajes:string;
 
   constructor() {
-    this.miJuego = new JuegoAnagrama();
     
     this.miJuego.jugador = "nn"
-    this.miJuego.desordenada = "Presiona el Boton";
+    // this.miJuego.desordenada = "Presiona el Boton";
     this.ocultarVerificar=true;
    }
 
@@ -35,7 +34,7 @@ export class AnagramaComponent implements OnInit {
     this.ocultarVerificar=false;
     this.miJuego = new JuegoAnagrama();
     
-    this.miJuego.jugador = "nn"
+    // this.miJuego.jugador = "nn"
     this.miPalabra = this.Palabras[Math.floor((Math.random() * 32) )];
     this.miJuego.palabra = this.miPalabra["palabra"];
     this.miJuego.desordenada = this.miPalabra["desordenada"];
@@ -57,6 +56,7 @@ export class AnagramaComponent implements OnInit {
    this.enviarJuego.emit(this.miJuego);
    console.log("no verificado");
     console.log(this.miJuego);
+
     
    }
  }
