@@ -1,11 +1,3 @@
-<!--<p>
-  anagrama works!
-</p>-->
-<!-- <div style="text-align:center ;font-family: 'Press Start 2P',cursive;color: white; ">
-    <h2>
-     Anagrama
-    </h2>
-   </div> -->
 
   <form name="juego" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
     <div class="centro">
@@ -14,8 +6,8 @@
             </div>
       <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.desordenada}}</h3>
       <h3 [hidden]="!ocultarVerificar" style="color:black">{{miJuego.palabra}}</h3>
-  
-      <input type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="ingrese respuesta" >
+      <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.pista}}</h3>
+      <input type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="Ingrese respuesta" >
       <h3></h3>
       <button [hidden]="!ocultarVerificar" class="btn2 blue" (click)="GenerarNuevo()">Generar Palabra</button>
       

@@ -9,6 +9,7 @@ export class JuegoAnagrama extends Juego{
     respuesta:string;
     desordenada: string;
     gano:boolean;
+    pista:string;
     
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
         super("Anagrama",gano,jugador);
