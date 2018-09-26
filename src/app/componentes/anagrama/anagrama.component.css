@@ -24,24 +24,25 @@ form {
   margin-left: 300px; 
   
   
-  font-family: 'Press Start 2P',cursive; 
-  font-size: 15px;
-
-  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif,cursive; 
+  font-size: 20px;
+  color: white;
   text-align: center;
   border-radius: 2px;
-  padding: 16px;
+  padding: 20PX;
   position: fixed;
   z-index: 1;
-  left: 5%;
+  left: 20%;
   bottom: 30px;
 }
 #snackbar.Ganador {
   background-color: #059F2F;
 }
+
 #snackbar.Perdedor {
   background-color: #FF0000;
 }
+
 #snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;

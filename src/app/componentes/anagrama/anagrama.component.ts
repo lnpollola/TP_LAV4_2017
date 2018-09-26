@@ -13,6 +13,7 @@ export class AnagramaComponent implements OnInit {
   miPalabra:any;
   Palabras:any;
   miJuego:JuegoAnagrama;
+  repite:boolean = false; 
 
   @Output()
   enviarJuego :EventEmitter<any>= new EventEmitter<any>();
@@ -25,13 +26,26 @@ export class AnagramaComponent implements OnInit {
 
   constructor() {
     this.miJuego = new JuegoAnagrama();
-    this.miJuego.jugador = "nn"
-    // this.miJuego.desordenada = "Presiona el Boton";
+    this.Tiempo=15; 
+    this.miJuego.jugador = "nn";
     this.ocultarVerificar=true;
    }
 
   GenerarNuevo(){
     this.ocultarVerificar=false;
+    this.repetidor = setInterval(()=>{ 
+      
+      if(this.Tiempo >0) {this.Tiempo--;}
+
+      console.log("Contador", this.Tiempo);
+      if(this.Tiempo==0 ) {
+        clearInterval(this.repetidor);
+        this.Verificar();
+        this.ocultarVerificar=true;
+        this.Tiempo=15;
+      }
+      }, 900);
+
     this.miJuego = new JuegoAnagrama();
     
     // this.miJuego.jugador = "nn"
@@ -41,13 +55,18 @@ export class AnagramaComponent implements OnInit {
     this.miJuego.pista= this.miPalabra["pista"];
  }
 
+
+
  Verificar(){
+
    if(this.miJuego.verificar())
    {
     this.ocultarVerificar=true;
     this.enviarJuego.emit(this.miJuego);
+    this.Tiempo=0;
     console.log("ok verificado");
      console.log(this.miJuego);
+     this.MostarMensaje("PERFECTO" , true);
     
    }
    else 
@@ -56,12 +75,9 @@ export class AnagramaComponent implements OnInit {
    this.enviarJuego.emit(this.miJuego);
    console.log("no verificado");
     console.log(this.miJuego);
-
-    
+    this.MostarMensaje("ERROR" , false);
    }
  }
-
-
 
   ngOnInit() {
 
@@ -166,7 +182,7 @@ export class AnagramaComponent implements OnInit {
             {
                 "id":"16",
               "palabra":"FRENO",
-              "desordenada":"NEREF",
+              "desordenada":"NOREF",
               "pista":"Lo que detiene"
             },
             {
@@ -276,7 +292,7 @@ export class AnagramaComponent implements OnInit {
      
     }
 
-    MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+    MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean) {
       this.Mensajes=mensaje;    
       var x = document.getElementById("snackbar");
       if(ganador)

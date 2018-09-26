@@ -7,7 +7,8 @@
       <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.desordenada}}</h3>
       <h3 [hidden]="!ocultarVerificar" style="color:black">{{miJuego.palabra}}</h3>
       <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.pista}}</h3>
-      <input type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="Ingrese respuesta" >
+
+      <input *ngIf="ocultarVerificar==false" type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="Ingrese respuesta" >
       <h3></h3>
 
 
@@ -30,7 +31,7 @@
 
   </div>
   </form>
-  
+  <div id="snackbar">{{Mensajes}}</div>
   
   
   
