@@ -13,18 +13,24 @@ export class TatetiComponent implements OnInit {
   miJuego:Tateti;
   valorUsuario:string;
   turno:string;
+  ganador:string;
   
 
   constructor() {
     this.miJuego=new Tateti("jug");
    let r= Math.round(Math.random()); 
-   if(r==0){
+
+   if(r==0)
+   {
      this.turno="pc";
-this.JugadaPc();   
-   }else{
+
+    this.JugadaPc();   
+
+   }
+   else{
      this.turno="jugador";
    }
-   console.log(r);
+
     
    }
 
@@ -36,19 +42,24 @@ this.JugadaPc();
 
   MarcarCasilla(x,y, valor){
 
-    if(this.miJuego.MarcarCasilla(x,y,valor))
-    {
-      if(this.turno=="jugador"){
-        this.turno="pc";
-      }
-      else{
-        this.turno="jugador";
-      }
-      this.JugadaPc();
-      
-    }
+   if(this.miJuego.MarcarCasilla(x,y,valor))
+   {
+    this.turno="pc";
+   }
     
-    console.log(this.miJuego.tablero[x][y]);
+      if(this.miJuego.gano && this.ganador != "pc")
+      {
+        this.ganador="jugador";
+        console.log("ganaste");
+      }
+
+      if(!this.miJuego.gano)
+      {
+        this.JugadaPc();
+      }
+      
+    
+  
   }
 
   JugadaPc(){
@@ -56,21 +67,44 @@ this.JugadaPc();
       let x= Math.round(Math.random() * (2 - 0)) + 0;
       let y= Math.round(Math.random() * (2 - 0)) + 0;
      
-      if(this.miJuego.HayLugar())
+      if(this.miJuego.HayLugar() && !this.miJuego.gano)
       {
         if(this.miJuego.MarcarCasilla(x,y,this.turno))
         {
           this.turno="jugador";
-          console.log(x,y," entro en el if, turno: ",this.turno);
+          
         }
 
       }
       if(this.miJuego.gano){
+        this.ganador="pc";
+        console.log("perdiste");
         this.turno="jugador";
+
       }
 
      //console.log(x,y, " no entro en el if, turno: ",this.turno);
     }while(this.turno=="pc");
+
+    
+
+  }
+
+  ReiniciarJuego()
+  {
+    this.miJuego=new Tateti("jug");
+    let r= Math.round(Math.random()); 
+ 
+    if(r==0)
+    {
+      this.turno="pc";
+ 
+     this.JugadaPc();   
+ 
+    }
+    else{
+      this.turno="jugador";
+    }
 
   }
 

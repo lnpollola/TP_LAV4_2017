@@ -31,6 +31,7 @@ public MarcarCasilla(x,y,valor)
 {
     if(this.HayLugar() && !this.gano)
     {
+    
         if( this.tablero[x][y].MarcarCasilla(valor))
         { 
   
@@ -109,7 +110,7 @@ public MarcarCasilla(x,y,valor)
                     this.gano=true;
                     return true;
                 }
-console.log("nada");
+
         
      return  false;
 
