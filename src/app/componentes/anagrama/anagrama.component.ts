@@ -283,11 +283,9 @@ export class AnagramaComponent implements OnInit {
           "pista":"Dícese del estilo elegante"
         }
       ]`;
-      this.Palabras = data;
+      this.Palabras = JSON.parse(data);
      
-      
-
-
+      console.info(this);
     }
 
     MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {

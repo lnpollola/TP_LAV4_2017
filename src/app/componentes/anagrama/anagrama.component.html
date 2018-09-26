@@ -1,18 +1,19 @@
 <!--<p>
   anagrama works!
 </p>-->
-<div style="text-align:center ;font-family: 'Press Start 2P',cursive;color: white; ">
+<!-- <div style="text-align:center ;font-family: 'Press Start 2P',cursive;color: white; ">
     <h2>
      Anagrama
     </h2>
-   </div>
-  <form name="juego" style="font-family: 'Press Start 2P',cursive; font-size: 10px">
+   </div> -->
+
+  <form name="juego" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
     <div class="centro">
-        <div align="center" class="titulo" style="color:aliceblue">
+        <div align="center" class="titulo" style="color: brown">
             <h4>Presione Generar</h4>
             </div>
-      <h3 [hidden]="ocultarVerificar" style="color:aliceblue">{{miJuego.desordenada}}</h3>
-      <h3 [hidden]="!ocultarVerificar" style="color:aliceblue">{{miJuego.palabra}}</h3>
+      <h3 [hidden]="ocultarVerificar" style="color:black">{{miJuego.desordenada}}</h3>
+      <h3 [hidden]="!ocultarVerificar" style="color:black">{{miJuego.palabra}}</h3>
   
       <input type="text" [(ngModel)]="miJuego.respuesta" [ngModelOptions]="{standalone: true}" placeholder="ingrese respuesta" >
       <h3></h3>
