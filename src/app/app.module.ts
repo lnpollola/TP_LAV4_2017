@@ -41,7 +41,7 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
-import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.component';
+import { CardGameComponent } from './componentes/mayor-omenor/mayor-omenor.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
@@ -72,12 +72,13 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    MayorOMenorComponent,
+    CardGameComponent,
     PptComponent,
     TatetiComponent
   ],
   imports: [
     BrowserModule,
+    MatCardModule,
     FormsModule,
     RuteandoModule,
     MatDividerModule,
