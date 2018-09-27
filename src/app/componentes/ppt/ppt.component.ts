@@ -34,7 +34,7 @@ export class PptComponent implements OnInit {
         this.TerminarJuego();
       }
      }else{
-       this.mensaje="El juego esta terminado, volve a empezar para seguir jugando!."
+       this.mensaje="Juego Terminado. Volve a empezar para seguir jugando."
      }
       
    }
@@ -52,10 +52,10 @@ export class PptComponent implements OnInit {
     this.enviarJuego.emit(this.nuevoPpt);
     if(this.nuevoPpt.gano)
     {
-      this.mensaje=" Bien, Ganaste!!";
+      this.mensaje="¡¡¡Ganaste!!!";
     }
     else{
-      this.mensaje="Que mal, perdiste, segui participando...";
+      this.mensaje="¡¡Perdiste!! Seguí participando...";
     }
    }
 

@@ -37,7 +37,7 @@ export class AnagramaComponent implements OnInit {
       
       if(this.Tiempo >0) {this.Tiempo--;}
 
-      console.log("Contador", this.Tiempo);
+      // console.log("Contador", this.Tiempo);
       if(this.Tiempo==0 ) {
         clearInterval(this.repetidor);
         this.Verificar();
