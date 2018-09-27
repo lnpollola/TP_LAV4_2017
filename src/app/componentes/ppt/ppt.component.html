@@ -26,7 +26,7 @@
       
         <div class="container-img">
            <label for="MiSeleccion">Mi seleccion</label>
-    <img id="MiSeleccion" src="./assets/imagenes/{{seleccionUsuario}}.png" alt="">
+    <img *ngIf="seleccionUsuario" id="MiSeleccion" src="./assets/imagenes/{{seleccionUsuario}}.png" alt="">
   
     <div class="puntos"><h1>{{puntosUsuario}}</h1></div>
    
@@ -35,7 +35,7 @@
     
     <div class="container-img">
         <label for="seleccionPc">Seleccion pc</label>
-      <img id="seleccionPc" src="./assets/imagenes/{{seleccionPc}}.png" alt="">
+      <img *ngIf="seleccionUsuario" id="seleccionPc" src="./assets/imagenes/{{seleccionPc}}.png" alt="">
       
      <div class="puntos"><h1>{{puntosPc}}</h1></div>
   
