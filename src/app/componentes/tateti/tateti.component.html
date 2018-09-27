@@ -7,16 +7,16 @@
   
       <tr *ngFor="let filas of miJuego.tablero">
         <td *ngFor="let casilla of filas ">  
-          <div class="casilla-tateti" (click)="MarcarCasilla(casilla.coorX, casilla.coorY, this.turno)"> <img class="imgCasilla" src="../../../assets/imagenes/casilla1.png" *ngIf="casilla.valor=='jugador'" >
-            <img class="imgCasilla" *ngIf="casilla.valor=='pc'" src="../../../assets/imagenes/casilla2.png" > </div>
+          <div class="casilla-tateti" (click)="MarcarCasilla(casilla.coorX, casilla.coorY, this.turno)"> <img class="imgCasilla" src="./assets/imagenes/casilla1.png" *ngIf="casilla.valor=='jugador'" >
+            <img class="imgCasilla" *ngIf="casilla.valor=='pc'" src="./assets/imagenes/casilla2.png" > </div>
         </td>      
       </tr>
       
     </div>
   <div class="info"> 
 
-    <h1> Turno: {{turno}} </h1><img class="imgInfo" *ngIf="this.turno =='jugador'" src="../../../assets/imagenes/casilla1.png" >
-                      <img class="imgInfo" *ngIf="this.turno =='pc'" src="../../../assets/imagenes/casilla2.png" >
+    <h1> Turno: {{turno}} </h1><img class="imgInfo" *ngIf="this.turno =='jugador'" src="./assets/imagenes/casilla1.png" >
+                      <img class="imgInfo" *ngIf="this.turno =='pc'" src="./assets/imagenes/casilla2.png" >
   </div>
   </div>
   </div>

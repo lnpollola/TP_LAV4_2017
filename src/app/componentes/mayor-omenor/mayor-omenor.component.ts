@@ -15,7 +15,7 @@ export class CardGameComponent implements OnInit
   public loader=true;
   public lowCards = ["ACE",2,3,4,5,6,7];
   public highCards = [8,9,10,"JACK","QUEEN","KING"];
-  public BlankCard = "../assets/imagenes/hideCard.png";
+  public BlankCard = "./assets/imagenes/hideCard.png";
   public deck_id:string;
   public totalcurd:number;
   Dcards=[];

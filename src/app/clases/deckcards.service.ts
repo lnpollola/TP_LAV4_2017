@@ -17,14 +17,14 @@ export class DeckcardsService
 
   drawCard(deckId)
   {
-	  return this.http.get("http://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count="+this.cantNumeros).map(res => res.json())
+	  return this.http.get("https://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count="+this.cantNumeros).map(res => res.json())
     .toPromise();
   }
 
 
   startGame()
   {
-    return this.http.get("http://deckofcardsapi.com/api/deck/new/shuffle/").map(res => res.json())
+    return this.http.get("https://deckofcardsapi.com/api/deck/new/shuffle/").map(res => res.json())
     .toPromise();
   }
 
