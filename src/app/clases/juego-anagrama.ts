@@ -16,6 +16,8 @@ export class JuegoAnagrama extends Juego{
     }
 
     verificar(){
+        
+        if (this.respuesta == undefined) {this.respuesta="";}
         if(this.palabra == this.respuesta.toUpperCase())
         {
             this.gano = true;
