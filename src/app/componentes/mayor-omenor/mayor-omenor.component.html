@@ -2,9 +2,9 @@
     <h1>{{message}}</h1>
       <mat-card-header>
       <mat-card-actions >
-        <button md-button md-raised-button color="accent" *ngIf="actionsBtn" (click)="onSelectHigh()">Higher</button>
-        <button md-button md-raised-button color="primary" *ngIf="actionsBtn" (click)="onSelectLow()">Lower</button>
-        <button md-button md-raised-button color="primary" *ngIf="!actionsBtn" (click)="onSelectTryAgain()">Try Again</button>
+        <button mat-button mat-raised-button color="accent" *ngIf="actionsBtn" (click)="onSelectHigh()">Higher</button>
+        <button mat-button mat-raised-button color="primary" *ngIf="actionsBtn" (click)="onSelectLow()">Lower</button>
+        <button mat-button mat-raised-button color="primary" *ngIf="!actionsBtn" (click)="onSelectTryAgain()">Try Again</button>
       </mat-card-actions>
     </mat-card-header>
       
@@ -12,7 +12,7 @@
       <p [hidden]="!loader">Loading....</p>
       <ul [hidden]="loader">
       <li  *ngFor="let card of Dcards"><img  [src]="card.BlankCard"></li>
-       
+
       </ul>
      
       </mat-card-content>

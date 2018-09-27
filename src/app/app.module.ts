@@ -45,7 +45,7 @@ import { CardGameComponent } from './componentes/mayor-omenor/mayor-omenor.compo
 import {MatDividerModule} from '@angular/material/divider';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
-
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     RuteandoModule,
     MatDividerModule,
     MatCardModule,
+    MatButtonModule,
     MatGridListModule,
     HttpModule,
     AgmCoreModule.forRoot({
