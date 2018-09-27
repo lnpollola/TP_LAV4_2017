@@ -19,8 +19,8 @@ export class JuegoAgilidad extends Juego {
   cargarSolucion() : void {
 
     this.operando = this.arrayOperandos[ Math.floor( ( Math.random() * this.arrayOperandos.length ) ) ];
-    this.primerNumero = Math.floor((Math.random() * 200) + 1);
-    this.segundoNumero = Math.floor((Math.random() * 200) + 1);
+    this.primerNumero = Math.floor((Math.random() * 20) + 1);
+    this.segundoNumero = Math.floor((Math.random() * 10) + 1);
     switch(this.operando){
       case "+":
         this.solucion = this.primerNumero + this.segundoNumero;
@@ -33,7 +33,7 @@ export class JuegoAgilidad extends Juego {
         break;
       case "/":
         while(this.segundoNumero === 0){
-          this.segundoNumero = Math.floor((Math.random() * 200) + 1);
+          this.segundoNumero = Math.floor((Math.random() * 5) + 1);
         }
         this.solucion = Math.floor(this.primerNumero / this.segundoNumero);
         break;

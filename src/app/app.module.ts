@@ -46,6 +46,9 @@ import {MatDividerModule} from '@angular/material/divider';
 import { PptComponent } from './componentes/ppt/ppt.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
 import {MatButtonModule} from '@angular/material/button';
+import { AccordionModule } from 'primeng/accordion';
+import {KeyFilterModule} from 'primeng/keyfilter';
+
 
 @NgModule({
   declarations: [
@@ -79,8 +82,10 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     BrowserModule,
     MatCardModule,
+    AccordionModule,
     FormsModule,
     RuteandoModule,
+    KeyFilterModule,
     MatDividerModule,
     MatCardModule,
     MatButtonModule,
