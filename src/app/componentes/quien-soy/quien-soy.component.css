@@ -7,6 +7,17 @@ body {
     line-height: 1.8;
     color: #f5f6f7;
 }
+.quiensoy1 {
+    border-radius: 70%;
+}
+.quiensoy2 {
+    border-radius: 20%;
+}
+
+.imagenUsuario {
+    border-radius: 20%;
+}
+
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
@@ -42,10 +53,4 @@ p {font-size: 16px;}
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
-}
-.img-circle {
-    border-radius: 50%;
-}
-.img-circle {
-    border-radius: 0;
 }
