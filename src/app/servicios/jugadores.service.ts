@@ -23,7 +23,21 @@ export class JugadoresService {
       .pipe(data => { return data; });
     }
 
+  // public ServiceTraerGanadores():Observable<any> {
+  //   return this.miHttp.httpGet("TraerTodosLosUsuarios", {} )
+  //     .pipe( map( data => { 
+  //       console.log(JSON.parse(data._body));
+  //       return JSON.parse(data._body).filter(
+  //                           jugador => jugador.id_usuario == 1 
+  //                         ); 
+  //                         }));
 
+  //   }
+
+  // public ServiceTraerTodosLosJugadores():Observable<any> {
+  //   return this.miHttp.httpGet("TraerTodosLosUsuarios", {})
+  //     .pipe(data => { return data; });
+  //   }
   // public ServiceAltavehiculo(vehiculo):Observable<any> {
   //   return this.miHttp.httpPost("altavehiculo",vehiculo)
   //       .pipe(data =>{ return data;}); 

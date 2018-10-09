@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadoresService } from '../../servicios/jugadores.service';
 import { stringify } from 'querystring';
+
 @Component({
   selector: 'app-jugadores-listado',
   templateUrl: './jugadores-listado.component.html',
@@ -8,8 +9,8 @@ import { stringify } from 'querystring';
 })
 export class JugadoresListadoComponent implements OnInit {
   public data;
-  listado:any
-  listafull:any;
+  listado:any;
+  
   miJugadoresServicio:JugadoresService
   
     constructor(serviceJugadores:JugadoresService) {
@@ -25,38 +26,32 @@ export class JugadoresListadoComponent implements OnInit {
   {
       this.miJugadoresServicio.ServiceTraerTodosLosJugadores().subscribe(data => {   
         this.listado = JSON.parse(data._body);
-       console.log(this.listado);})
+      //  console.log(this.listado);
+      }
+      )
   }
 
   TraerGanadores()
   {
- 
+    this.miJugadoresServicio.ServiceTraerTodosLosJugadores()
+    .subscribe(
+        data => 
+        {   
+          this.listado = JSON.parse(data._body);
+          this.listado =this.listado
+                              .filter(data => data.id_usuario === 1 ); 
+          // console.log(this.listado);
+        }
+    )
 
-      this.miJugadoresServicio.ServiceTraerTodosLosJugadores().subscribe(data => {   
-        this.listafull = JSON.parse(data._body);
-       console.log("LISTAFULL",this.listafull);
-      
-       this.listado = this.listafull.filter( jugador => 
-        {
-        console.log("JUGADOR",jugador.id_usuario);
-          
-                  (jugador.id_usuario == '1');
-                }
-         );
-      
-      
-      
-      })
+   }
+    
 
-       console.log("LISTADO DSP DE FILTRO",this.listado);
-       return this.listado;
-  }
-
-  TraerPerdedores()
-  {
-    this.miJugadoresServicio.ServiceTraerTodosLosJugadores().subscribe(data => {   
-      this.listado = JSON.parse(data._body);
-      console.log(this.listado);})
-    }
+  // TraerPerdedores()
+  // {
+  //   this.miJugadoresServicio.ServiceTraerGanadores().subscribe(data => {   
+  //     this.listado = JSON.parse(data._body);
+  //     console.log(this.listado);})
+  //   }
 }
 

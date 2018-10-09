@@ -48,6 +48,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import {MatButtonModule} from '@angular/material/button';
 import { AccordionModule } from 'primeng/accordion';
 import {KeyFilterModule} from 'primeng/keyfilter';
+// import { JugadorGanadoresPipe } from './pipes/jugador-ganadores.pipe';
 
 
 @NgModule({
