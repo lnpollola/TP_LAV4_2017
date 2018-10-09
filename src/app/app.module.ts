@@ -14,10 +14,10 @@ import {MatCardModule} from '@angular/material/card';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MiHttpService } from './servicios/mi-http/mi-http.service'; 
-import { PaisesService } from './servicios/paises.service'; 
+// import { PaisesService } from './servicios/paises.service'; 
 
 import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
+// import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -25,10 +25,10 @@ import { MenuComponent } from './componentes/menu/menu.component';
 import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/adivina-mas-listado.component';
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
-import { ListadoComponent } from './componentes/listado/listado.component';
+// import { ListadoComponent } from './componentes/listado/listado.component';
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { JuegoServiceService } from './servicios/juego-service.service';
+// import { JuegoServiceService } from './servicios/juego-service.service';
 import { ListadosComponent } from './componentes/listados/listados.component';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
@@ -62,7 +62,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     MenuComponent,
     AdivinaMasListadoComponent,
     AgilidadMasListadoComponent,
-    ListadoComponent,
+    // ListadoComponent,
     ListadosComponent,
     JuegosComponent,
     RegistroComponent,
@@ -98,7 +98,12 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ 
+    // JuegoServiceService,
+     MiHttpService,
+    //  PaisesService,
+    //  ArchivosJugadoresService,
+     JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -18,30 +18,37 @@ export class JugadoresListadoComponent implements OnInit {
 
 
   ngOnInit() {
+    this.TraerTodos();
   }
 
 
   TraerTodos(){
     //alert("totos");
-    this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
+    // this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
       //console.info("jugadores listado",(data));
-      this.listado= data;
+  
 
-    })
-  }
-  TraerGanadores(){
-    this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
+      this.miJugadoresServicio.ServiceTraerTodosLosUsuarios().subscribe(data => {   
+        this.listado = JSON.parse(data._body);
+       console.log(this.listado);
 
-    })
-  }
-  TraerPerdedores(){
-    this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
-      //console.info("jugadores listado",(data));
-      this.listado= data;
+      })
 
-    })
+    
   }
+  // TraerGanadores(){
+  //   this.miJugadoresServicio.traertodos('jugadores/','ganadores').then(data=>{
+  //     //console.info("jugadores listado",(data));
+  //     this.listado= data;
+
+  //   })
+  // }
+  // TraerPerdedores(){
+  //   this.miJugadoresServicio.traertodos('jugadores/','perdedores').then(data=>{
+  //     //console.info("jugadores listado",(data));
+  //     this.listado= data;
+
+  //   })
+  // }
 
 }

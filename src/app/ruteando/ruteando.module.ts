@@ -34,8 +34,8 @@ const MiRuteo = [
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
-{path: 'Paises' , component: ListadoDePaisesComponent},
+{path: 'Listado' , component: JugadoresListadoComponent},
+// {path: 'Paises' , component: ListadoDePaisesComponent},
 
 { path: 'Juegos' ,
 component: JuegosComponent ,

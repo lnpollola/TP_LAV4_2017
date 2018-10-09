@@ -1,52 +1,46 @@
-import { log } from 'util';
 import { Injectable } from '@angular/core';
 
-import { Http, Response } from '@angular/http';
+import {Http ,Response, Headers} from '@angular/http';
 
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/toPromise';
+import { catchError, map, tap } from 'rxjs/operators';
+
+import { Observable, Subject } from 'rxjs';
+
 
 @Injectable()
+
 export class MiHttpService {
 
-  constructor( public http: Http ) { }
+  //api="https://restcountries.eu/rest/v2/";
+    api="http://localhost/Back_TPSALA/"
+  
 
-  public httpGetP ( url: string)
-  {
+  constructor(public http:Http) { }
+  public httpGet(metodo:string, objeto:any):Observable<any>{
+
     return this.http
-    .get( url )
-    .toPromise()
-    .then( this.extractData )
-    .catch( this.handleError );
+    .get(this.api + metodo)
+    .pipe(tap(data => {return this.extraerDatos(data)}));
+    
   }
 
-  public httpPostP( url: string, objeto: any )
+ 
+  public httpPost(metodo:string, objeto:any)
   {
-    return this.http
-    .get( url )
-    .subscribe( data => {
-      console.log( data );
-      return data;
-    });
+    return this.http.post(this.api + metodo, objeto)
+    .pipe(catchError(this.handleError));
   }
 
-  public httpGetO ( url: string): Observable<Response>
-  {
-    return this.http.get( url )
-      .map( ( res: Response ) => res.json())
-      .catch( ( err: any ) => Observable.throw(err.json().error || 'Server error'));
+  
+  private extraerDatos(resp:Response) {
+
+      return resp.json() || {};
+
+  }
+  private handleError(error:Response | any) {
+
+      return error;
   }
 
 
-  private extractData ( res: Response )
-  {
-    return res.json() || {};
-  }
-
-  private handleError ( error: Response | any )
-  {
-    return error;
-  }
 }
