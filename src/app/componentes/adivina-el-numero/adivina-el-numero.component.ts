@@ -94,6 +94,11 @@ export class AdivinaElNumeroComponent implements OnInit {
     console.info("objeto",x);
   
    }  
+
+   GanoJuego()
+   {
+    console.info("ESTOY EN GANO ADIVINA EL NUMERO CON EVENT");
+   }
   ngOnInit() {
   }
 
