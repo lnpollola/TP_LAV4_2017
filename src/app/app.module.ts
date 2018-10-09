@@ -48,6 +48,7 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import {MatButtonModule} from '@angular/material/button';
 import { AccordionModule } from 'primeng/accordion';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import {MatTableModule} from '@angular/material/table';
 // import { JugadorGanadoresPipe } from './pipes/jugador-ganadores.pipe';
 
 
@@ -88,6 +89,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     RuteandoModule,
     KeyFilterModule,
     MatDividerModule,
+    MatTableModule,
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
