@@ -2,8 +2,8 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    max-width: 300px;
-   height: 100%;
+    max-width: 250px;
+    height: 100%;
     margin: 10px;
     padding-bottom: 10px;
     float: left;
@@ -13,12 +13,15 @@
 
 /* Add rounded corners to the top left and the top right corner of the image */
 img {
-    border-radius: 5px 5px 0 0;
+    /* border-radius: 5px 5px 0 0; */
+    border-radius: 50%;
     width: 200px;
     height: 200px;
 }/* Add some padding inside the card container */
+
 .container {
-    padding: 2px 16px;
+    padding-top: 10%;
+    padding: 0.5%;
 }
 
 
