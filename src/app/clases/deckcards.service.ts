@@ -1,6 +1,7 @@
 import { Injectable, Input} from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DeckcardsService 
