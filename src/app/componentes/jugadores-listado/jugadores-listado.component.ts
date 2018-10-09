@@ -32,7 +32,7 @@ export interface PeriodicElement {
 export class JugadoresListadoComponent implements OnInit {
   public data;
   listado:any;
-  
+  panelOpenState = false;
   displayedColumns: string[] = ['id', 'nombre', 'usuario', 'password'];
 
   miJugadoresServicio:JugadoresService

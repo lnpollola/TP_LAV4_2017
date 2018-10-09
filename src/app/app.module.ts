@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -49,6 +50,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AccordionModule } from 'primeng/accordion';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 // import { JugadorGanadoresPipe } from './pipes/jugador-ganadores.pipe';
 
 
@@ -91,9 +93,11 @@ import {MatTableModule} from '@angular/material/table';
     MatDividerModule,
     MatTableModule,
     MatCardModule,
+    MatExpansionModule,
     MatButtonModule,
     MatGridListModule,
     HttpModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
