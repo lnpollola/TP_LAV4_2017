@@ -17,42 +17,12 @@ export class JugadoresService {
   constructor( public miHttp: MiHttpService ) {
   }
 
-  // traertodos(ruta : string,filtro: string) 
-  // {
-  //   return this.miHttp.traerJugadores(ruta).then(data=>{
-  //     console.info("jugadores service",data);
 
-  //     this.filtrado=data;
-
-  //    let  ganador: boolean;
-  //     if(filtro=="ganadores")
-  //     {
-  //       ganador= true;
-  //     }
-  //     else
-  //     {
-  //       ganador= false;
-  //     }
-
-  //     this.filtrado =this.filtrado.filter(
-  //       data => data.gano === ganador  || filtro=="todos" ); return this.filtrado}
-  //     )
-  //     .catch(errror=>{console.log("error")
-      
-
-
-  //   return this.filtrado;
-      
-
-  //   });
-  // }
-
-  public ServiceTraerTodosLosUsuarios():Observable<any> {
+  public ServiceTraerTodosLosJugadores():Observable<any> {
     return this.miHttp.httpGet("TraerTodosLosUsuarios", {})
       .pipe(data => { return data; });
+    }
 
-
-  }
 
   // public ServiceAltavehiculo(vehiculo):Observable<any> {
   //   return this.miHttp.httpPost("altavehiculo",vehiculo)
