@@ -1,7 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-//para poder hacer las validaciones
-//import { Validators, FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+
+function copiaClave(input: FormControl) {
+
+      if (input.root.get('clave') == null) {
+        return null;
+      }
+
+      const verificar = input.root.get('clave').value === input.value;
+      return verificar ? null : { mismaClave : true };
+  }
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -9,14 +19,34 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class RegistroComponent implements OnInit {
 
- /* constructor( private miConstructor:FormBuilder) { }
-  email=new FormControl('',[Validators.email]);
-  formRegistro:FormGroup=this.miConstructor.group({
-    usuario:this.email
-  });*/
-  constructor( ) { }
+  constructor(private builder: FormBuilder) { }
+
+  email = new FormControl('', [
+    Validators.required,
+    Validators.minLength(5)
+  ]);
+  
+  clave = new FormControl('', [
+    Validators.required
+  ]);
+  
+  copiaClave = new FormControl('', [
+    Validators.required,
+    copiaClave
+  ]);
+
+  registroForm: FormGroup = this.builder.group({
+    email: this.email,
+    clave: this.clave,
+    copiaClave: this.copiaClave,
+  });
 
   ngOnInit() {
+  }
+
+  Registrar(){
+    alert("Usuario Registrado");
+    console.log(this.registroForm.get('email').value); 
   }
 
 }

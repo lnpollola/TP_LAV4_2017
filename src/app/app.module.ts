@@ -52,7 +52,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 // import { JugadorGanadoresPipe } from './pipes/jugador-ganadores.pipe';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -91,6 +91,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     RuteandoModule,
     KeyFilterModule,
     MatDividerModule,
+    ReactiveFormsModule,
     MatTableModule,
     MatCardModule,
     MatExpansionModule,
