@@ -20,39 +20,41 @@
         <div class="container">
 
           <div class="example-container">
+              <h2 class="display-8">Registro</h2>
+              <br>
               <mat-form-field>
                   <input matInput placeholder="Ingrese Nombre" [formControl]="nombre" type="nombre" required>
                   <mat-error *ngIf="nombre.invalid">{{getErrorMessageNomb()}}</mat-error>
                 </mat-form-field>
-                <br>
+           
 
                 <mat-form-field>
                     <input matInput placeholder="Ingrese Usuario" [formControl]="usuario" type="usuario" required>
                     <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error>
                   </mat-form-field>
-                  <br>
+
              <mat-form-field>
               <input matInput placeholder="Ingrese e-mail" [formControl]="email" type="email" required>
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
-            <br>
+
               <mat-form-field>
                 <input matInput placeholder="Ingrese contraseña" [formControl]="password" [type]="hide ? 'password' : 'text'">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error>
               </mat-form-field>  
-            <br>
+
               <mat-form-field>
                   <input matInput placeholder="Repita la contraseña" [formControl]="copiaClave" name="psw-repeat" [type]="hide ? 'password' : 'text'">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   <mat-error *ngIf="copiaClave.invalid">{{getErrorMessagePswDup()}}</mat-error>
                 </mat-form-field>  
-
+                <br>
                 <mat-checkbox >Recordar mis Datos</mat-checkbox>
 
             <!-- <input type="checkbox" checked="checked">Recordar mis datos -->
             <p>Crear cuenta aceptando los  <a  onclick="document.getElementById('id01').style.display='none'" style="background-color: lightgrey;"  >Terminos y condiciones</a>.</p>
-      
+            <br>
             <div class="clearfix">
               <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Volver Atrás</button>
               <button type="submit" class="signupbtn">Registrarme</button>

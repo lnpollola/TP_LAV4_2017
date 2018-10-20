@@ -35,6 +35,14 @@ export class RegistroComponent implements OnInit {
   password = new FormControl('', [
     Validators.required
   ]);
+
+  nombre = new FormControl('', [
+    Validators.required
+  ]);
+
+  usuario = new FormControl('', [
+    Validators.required
+  ]);
   
   copiaClave = new FormControl('', [
     Validators.required,
@@ -70,6 +78,18 @@ export class RegistroComponent implements OnInit {
   getErrorMessagePswDup() {
     return this.email.hasError('required') ? 'Debes ingresar la  misma clave' :
         this.email.hasError('email') ? 'La clave no es igual a la anterior' :
+            '';
+  }
+
+  getErrorMessageNomb() {
+    return this.email.hasError('required') ? 'Debes ingresar un nombre' :
+        this.email.hasError('email') ? 'El nombre no es válido' :
+            '';
+  }
+
+  getErrorMessageUser() {
+    return this.email.hasError('required') ? 'Debes ingresar un usuario' :
+        this.email.hasError('email') ? 'El usuario no es válido' :
             '';
   }
 
