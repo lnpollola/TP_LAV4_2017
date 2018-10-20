@@ -12,23 +12,40 @@
   <button  class="cancelbtn"  routerLink="/Principal" style="width:auto;">No acepto</button>
 
   <div id="id01" class="modal">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar ventana">X</span>
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Cerrar ventana">x</span>
     <!-- FORM -->
-  
-    
+
     <form [formGroup]="registroForm" class="modal-content animate" (ngSubmit)="Registrar()" >
-      <div class="container">
-        <label><b>Email</b></label>
-        <input type="text" placeholder="Ingresa tu correo" name="email" [formControl]="email" required>
-  
-        <label><b>Clave</b></label>
-        <input type="password" placeholder="Aca la clave" name="psw"  [formControl]="clave  " required>
-  
-        <label><b>Repita la clave</b></label>
-        <input type="password" placeholder="Aca repeti la misma clave  de arriba"  [formControl]="copiaClave" name="psw-repeat" required>
-        <div>
+    
+        <div class="container">
+
+          <div class="example-container">
+             <mat-form-field>
+              <input matInput placeholder="Ingrese e-mail" [formControl]="email" type="email" required>
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+          <!-- </div>
+
+          <div class="container-P"> -->
+              <mat-form-field>
+                <input matInput placeholder="Ingrese contraseña" [formControl]="password" [type]="hide ? 'password' : 'text'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error>
+              </mat-form-field>  
+
+
+              <mat-form-field>
+                  <input matInput placeholder="Repita la contraseña" [formControl]="copiaClave" name="psw-repeat" [type]="hide ? 'password' : 'text'">
+                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  <mat-error *ngIf="copiaClave.invalid">{{getErrorMessagePswDup()}}</mat-error>
+                </mat-form-field>  
+
+                <mat-checkbox >Recordar mis Datos</mat-checkbox>
          
-        <input type="checkbox" checked="checked">Recordar mis datos
+
+         
+        <!-- <input type="checkbox" checked="checked">Recordar mis datos -->
         <p>Crear cuenta aceptando los  <a  onclick="document.getElementById('id01').style.display='none'" style="background-color: lightgrey;"  >Terminos y condiciones</a>.</p>
   
         <div class="clearfix">
@@ -36,10 +53,10 @@
           <button type="submit" class="signupbtn">Registrarme</button>
         </div>
 
+        </div>
       </div>
-  </div>
-
-  </form>
+        
+    </form>
   </div>
   
   <script>

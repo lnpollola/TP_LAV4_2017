@@ -1,11 +1,12 @@
-input[type=text], input[type=password] {
+input[type=text], input[type=password] , input[type=email] {
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    /* padding: 12px 20px;
+    margin: 8px 0; */
     display: inline-block;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     box-sizing: border-box;
 }
+
 
 /* Set a style for all buttons */
 button {
@@ -33,17 +34,6 @@ button {
 }
 
 
-/*Estilos validacion*/
-
-.ng-invalid:not(form)  {
-	border-left: 5px solid #a94442;
-}
-
-.ng-valid:not(form)  {
-	border-left: 5px solid #4CAF50;
-}
-
-
 
 /* The Modal (background) */
 .modal {
@@ -64,9 +54,45 @@ button {
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 98%; /* Could be more or less, depending on screen size */
+    border: 1px solid #888; 
+    width: 70%; /* Could be more or less, depending on screen size */
+/*     
+    text-align: center;
+    align-items: center; */
 }
+
+
+
+
+/* FORM FIELDS */
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 2%;
+    
+  }
+
+
+
+
+
+  .example-right-align {
+    text-align: right;
+  }
+
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  /* input.example-right-align {
+    -moz-appearance: textfield;
+  } */
 
 /* The Close Button (x) */
 .close {
@@ -79,6 +105,7 @@ button {
 }
 
 .close:hover,
+
 .close:focus {
     color: red;
     cursor: pointer;

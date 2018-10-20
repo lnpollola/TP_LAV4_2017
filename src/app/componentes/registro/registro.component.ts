@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
+
 function copiaClave(input: FormControl) {
 
       if (input.root.get('clave') == null) {
@@ -19,14 +20,19 @@ function copiaClave(input: FormControl) {
 })
 export class RegistroComponent implements OnInit {
 
+  hide = true;
+
   constructor(private builder: FormBuilder) { }
 
+
   email = new FormControl('', [
-    Validators.required,
+    Validators.required, 
+    Validators.email,
     Validators.minLength(5)
   ]);
+
   
-  clave = new FormControl('', [
+  password = new FormControl('', [
     Validators.required
   ]);
   
@@ -37,7 +43,7 @@ export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup = this.builder.group({
     email: this.email,
-    clave: this.clave,
+    clave: this.password,
     copiaClave: this.copiaClave,
   });
 
@@ -47,6 +53,24 @@ export class RegistroComponent implements OnInit {
   Registrar(){
     alert("Usuario Registrado");
     console.log(this.registroForm.get('email').value); 
+  }
+
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'Debes ingresar un mail con 5 caracteres como mínimo' :
+        this.email.hasError('email') ? 'No es un e-mail valido' :
+            '';
+  }
+
+  getErrorMessagePsw() {
+    return this.email.hasError('required') ? 'Debes ingresar una clave con mínimo 5 caracteres' :
+        this.email.hasError('email') ? 'La clave no es válida' :
+            '';
+  }
+
+  getErrorMessagePswDup() {
+    return this.email.hasError('required') ? 'Debes ingresar la  misma clave' :
+        this.email.hasError('email') ? 'La clave no es igual a la anterior' :
+            '';
   }
 
 }

@@ -52,7 +52,12 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 // import { JugadorGanadoresPipe } from './pipes/jugador-ganadores.pipe';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material';
+import {MatIconModule} from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 @NgModule({
   declarations: [
@@ -97,6 +102,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatExpansionModule,
     MatButtonModule,
     MatGridListModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatFormFieldModule,
     HttpModule,
     BrowserAnimationsModule,
     AgmCoreModule.forRoot({
