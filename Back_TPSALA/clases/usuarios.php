@@ -8,7 +8,8 @@ class Usuario
 	private $id_Usuario;
 	private $nombre;
  	private $usuario;
-    private $password;
+	private $password;
+	private $email;
       
 	
 //--------------------------------------------------------------------------------//
@@ -30,6 +31,10 @@ class Usuario
 	{
 		return $this->password;
 	}
+	public function GetEmail()
+	{
+		return $this->email;
+	}
 	
 
 	public function Setid_Usuario($valor)
@@ -48,20 +53,25 @@ class Usuario
 	{
 		$this->password = $valor;
 	}
+	public function SetEmail($valor)
+	{
+		$this->email = $valor;
+	}
 	
 
 
 //--------------------------------------------------------------------------------//
 //--CONSTRUCTOR
 	//DV PROBAR ID -> POSTMAN SIN LUZ -> AGREGADO EL ATRIBUTO ID PARA PODER MODIFICAR.
-	public function __construct( $id_Usuario=NULL,$nombre=NULL, $usuario=NULL, $password=NULL)
+	public function __construct( $id_Usuario=NULL,$nombre=NULL, $usuario=NULL, $password=NULL, $email=NULL)
 	{
-		if( $id_Usuario !== NULL && $nombre !== NULL && $usuario !== NULL && $password !== NULL){
+		if( $id_Usuario !== NULL && $nombre !== NULL && $usuario !== NULL && $password !== NULL && $email !== NULL){
 			
 			$this->id_Usuario = $id_Usuario;
 			$this->nombre = $nombre;
 			$this->usuario = $usuario;
 			$this->password = $password;
+			$this->email = $email;
 			
 		}
 	}
@@ -70,7 +80,7 @@ class Usuario
 //--TOSTRING	
   	public function ToString()
 	{
-	  	return $this->id_Usuario." - ".$this->nombre." - ".$this->usuario." - ".$this->password."\r\n";
+	  	return $this->id_Usuario." - ".$this->nombre." - ".$this->usuario." - ".$this->password." - ".$this->email."\r\n";
 	}
 //--------------------------------------------------------------------------------//
 
@@ -81,15 +91,16 @@ class Usuario
 		public static function AltaUsuario($usuario)
 		{
 			
-			if( sizeof($usuario) == 3 )
+			if( sizeof($usuario) == 4 )
 			{
 					$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-					$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO usuarios(nombre,usuario,password) VALUES (:nombre,:usuario,:password)');
+					$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO usuarios(nombre,usuario,password,email) VALUES (:nombre,:usuario,:password,:email)');
 			
 				//parametros
 					$consulta->bindvalue(':nombre', $usuario['nombre'], PDO::PARAM_STR);
 					$consulta->bindvalue(':usuario', $usuario['usuario'] , PDO::PARAM_STR);
 					$consulta->bindvalue(':password', $usuario['password'] , PDO::PARAM_STR);
+					$consulta->bindvalue(':email', $usuario['email'] , PDO::PARAM_STR);
 					
 					$resultado = $consulta->Execute();			
 			}		
@@ -108,7 +119,7 @@ class Usuario
 		{
 			$arrayRetorno = array();
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-			$consulta = $objetoAcceso->RetornarConsulta('SELECT id_usuario, Nombre, Usuario, Password FROM usuarios');
+			$consulta = $objetoAcceso->RetornarConsulta('SELECT id_usuario, Nombre, Usuario, Password , Email FROM usuarios');
 			$consulta->Execute();
 			return $consulta->fetchAll(PDO::FETCH_CLASS,"Usuario");
 			
@@ -117,7 +128,7 @@ class Usuario
 		public static function TraerUnUsuario($id)
 		{
 			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-			$consulta = $objetoAcceso->RetornarConsulta('SELECT id_usuario, Nombre, Usuario, Password  
+			$consulta = $objetoAcceso->RetornarConsulta('SELECT id_usuario, Nombre, Usuario, Password , Email  
 														 FROM usuarios 
 														 WHERE id_usuario=:id');
 			$consulta->bindParam("id", $id);

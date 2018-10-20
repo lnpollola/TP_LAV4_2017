@@ -80,7 +80,36 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
         return $response->withJson($usuarios);
         });
 
+        $app->post('/altaUsuarioJuegos',function (Request $request, Response $response,$args) {
+                        
+                try	
+                {
+
+                        $ArrayDeParametros = $request->getParsedBody();  
+                        
+                        $resultado = Usuario::AltaUsuario($ArrayDeParametros);
+
+                        if($resultado)
+                        {
+                                $rta = "El Empleado fue dado de alta correctamente";
+                        }
+                        else
+                        {
+                                $rta = "No se ha dado de alta el empleado";
+                        }
+
+
+                        
+                }                                        
+                catch (Exception $e)
+                {
+                        $rta = "Error al ejecutar la sentencia (detalle del error:".$e->getMessage();
+                }
+        
+//                return $response->withJson($rta);
+        return $response->withJson($ArrayDeParametros);
                 
+});          
 //         /*****************************   TRAER BD   *******************************/
                 //Traer todos los helados
                         $app->get('/TraerTodosLosHelados', function ($request, $response) {
