@@ -23,23 +23,23 @@
               <h2 class="display-8">Registro</h2>
               <br>
               <mat-form-field>
-                  <input matInput placeholder="Ingrese Nombre" [formControl]="nombre" type="nombre" required>
+                  <input matInput placeholder="Ingrese Nombre" [formControl]="nombre" type="nombre" name="nombre" required>
                   <mat-error *ngIf="nombre.invalid">{{getErrorMessageNomb()}}</mat-error>
                 </mat-form-field>
            
 
                 <mat-form-field>
-                    <input matInput placeholder="Ingrese Usuario" [formControl]="usuario" type="usuario" required>
+                    <input matInput placeholder="Ingrese Usuario" [formControl]="usuario" type="usuario" name="usuario" required>
                     <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error>
                   </mat-form-field>
 
              <mat-form-field>
-              <input matInput placeholder="Ingrese e-mail" [formControl]="email" type="email" required>
+              <input matInput placeholder="Ingrese e-mail" [formControl]="email" type="email" name="email" required>
               <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
 
               <mat-form-field>
-                <input matInput placeholder="Ingrese contraseña" [formControl]="password" [type]="hide ? 'password' : 'text'">
+                <input matInput placeholder="Ingrese contraseña" [formControl]="password" name="password" [type]="hide ? 'password' : 'text'">
                 <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error>
               </mat-form-field>  
@@ -57,7 +57,7 @@
             <br>
             <div class="clearfix">
               <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Volver Atrás</button>
-              <button type="submit" class="signupbtn">Registrarme</button>
+              <button type="submit" class="signupbtn" [disabled]="!registroForm.valid">Registrarme</button>
             </div>
 
         </div>
