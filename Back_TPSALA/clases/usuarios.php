@@ -150,9 +150,9 @@ class Usuario
 		public static function SignIn($arrayParametros)
 		{
 				$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-				if(sizeof($arrayParametros)==3)
-				{
-					$consulta = $objetoAcceso->RetornarConsulta('SELECT  id_usuario, Nombre, Usuario, Password , Email FROM `usuarios` WHERE Email=:email and password=:password and Usuario=:usuario');
+				// if(sizeof($arrayParametros)==4)
+				// {
+					$consulta = $objetoAcceso->RetornarConsulta('SELECT  id_usuario, Nombre, Usuario, Password , Email FROM `usuarios` WHERE Email=:email and Password=:password and Usuario=:usuario');
 					$consulta->bindvalue(':usuario', $arrayParametros['usuario'], PDO::PARAM_STR);
 					$consulta->bindvalue(':email', $arrayParametros['email'], PDO::PARAM_STR);
 					$consulta->bindvalue(':password', $arrayParametros['password'] , PDO::PARAM_STR);					
@@ -181,10 +181,10 @@ class Usuario
 							$retorno = $objDelaRespuesta;														
 						}
 					
-				}
-				else{
-					$retorno = false;
-				}
+				// }
+				// else{
+				// 	$retorno = false;
+				// }
 								
 				return $retorno;
 		}

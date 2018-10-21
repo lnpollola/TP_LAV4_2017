@@ -3,6 +3,11 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+import {LoginService} from '../../servicios/login.service';
+import {Usuario} from '../../clases/usuario';
+
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,31 +16,79 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
 export class LoginComponent implements OnInit {
 
   private subscription: Subscription;
-  usuario = '';
+  mail = '';
   clave= '';
+  nombre= '';
+  usuario= '';
   progreso: number;
   progresoMensaje="esperando..."; 
   logeando=true;
   ProgresoDeAncho:string;
+  respuesta: any;
+
 
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private _servicio:LoginService
+    
+    ) {
       this.progreso=0;
       this.ProgresoDeAncho="0%";
-
+     
   }
 
   ngOnInit() {
   }
 
-  Entrar() {
-    if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
-    }
+
+  Entrar(){
+    
+    
+    
+    var loginDatos = new Usuario(this.nombre,this.usuario,this.mail, this.clave);
+  
+ 
+
+    this._servicio.ServiceLogin(loginDatos).subscribe(data =>{
+      
+      this.respuesta = JSON.parse(data._body);
+      
+    //  console.log(this.respuesta);     
+      
+            if ( this.respuesta.status)
+              {
+                //console.log(this.datosToken.token);
+                localStorage.setItem('token', this.respuesta.token);
+                this.router.navigateByUrl("/Principal");
+              }
+              else
+                  {
+                    alert("Error intente de nuevo");
+                    this.router.navigateByUrl("/Login");
+                  }
+      /*        
+      const helper = new JwtHelperService();
+  
+      const decodedToken = helper.decodeToken(this.datosToken.token);
+      const expirationDate = helper.getTokenExpirationDate(this.datosToken.token);
+      const isExpired = helper.isTokenExpired(this.datosToken.token);
+  
+      console.log(decodedToken);
+      console.log(expirationDate);
+      console.log(isExpired);
+      */
+    
+    
+    });
+      
+    
+  
   }
+  
+  
   MoverBarraDeProgreso() {
     
     this.logeando=false;
@@ -43,7 +96,7 @@ export class LoginComponent implements OnInit {
     this.progresoMensaje="NSA spy..."; 
     let timer = TimerObservable.create(200, 50);
     this.subscription = timer.subscribe(t => {
-      console.log("inicio");
+      // console.log("inicio");
       this.progreso=this.progreso+1;
       this.ProgresoDeAncho=this.progreso+20+"%";
       switch (this.progreso) {
@@ -69,7 +122,7 @@ export class LoginComponent implements OnInit {
           break;
           
         case 100:
-          console.log("final");
+          // console.log("final");
           this.subscription.unsubscribe();
           this.Entrar();
           break;

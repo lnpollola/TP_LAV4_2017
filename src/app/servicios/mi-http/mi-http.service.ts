@@ -11,7 +11,6 @@ import { Observable, Subject } from 'rxjs';
 
 export class MiHttpService {
 
-  //api="https://restcountries.eu/rest/v2/";
     api="http://localhost/Back_TPSALA/"
   
 
