@@ -1,5 +1,6 @@
 <?php
 //Incluimos la clase AccesoDatos.php que no estaba. La copiamos desde la Carpeta Clases de Clase06
+require_once "AutentificadorJWT.php";
 
 class Usuario
 {
@@ -146,61 +147,46 @@ class Usuario
 			}
 		}
 
-		public static function TraerUnHeladoSabor($sabor)
+		public static function SignIn($arrayParametros)
 		{
-			$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-			$consulta = $objetoAcceso->RetornarConsulta('SELECT id_helado, Sabor, Tipo, Kilos  
-														 FROM helados 
-														 WHERE Sabor=:sabor');
-			$consulta->bindParam("sabor", $sabor);
-			$consulta->execute();
-			$uno = $consulta->fetchObject("Helado");
-			
-			if($uno == NULL)
-			{ 
-				$uno=0; 
-				return $uno;
-			}
-			else 
-			{ 
-				return $uno; 
-			}
-		}
-
-		public static function BajaHel($id)
-		{
-			
-			// if(is_numeric($id))
-			// {
 				$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-				$consulta = $objetoAcceso->RetornarConsulta('UPDATE `helados` 
-															SET	kilos =0  
-															WHERE 	id_helado=:id ');
-				
-				//parametros
-				// $consulta->bindvalue(':id', $id , PDO::PARAM_INT); 
-				$consulta->bindParam("id", $id);
-				$consulta->Execute();
-				
-				$resultado = $consulta->rowCount();
-			
-					if ($resultado==0)
-					{
-						$resultado = "El helado no existe";
-					}
-					else
-					{
-						$resultado = "El helado fue Stock = 0";
-					}
+				if(sizeof($arrayParametros)==3)
+				{
+					$consulta = $objetoAcceso->RetornarConsulta('SELECT  id_usuario, Nombre, Usuario, Password , Email FROM `usuarios` WHERE Email=:email and password=:password and Usuario=:usuario');
+					$consulta->bindvalue(':usuario', $arrayParametros['usuario'], PDO::PARAM_STR);
+					$consulta->bindvalue(':email', $arrayParametros['email'], PDO::PARAM_STR);
+					$consulta->bindvalue(':password', $arrayParametros['password'] , PDO::PARAM_STR);					
+					
+					$consulta->execute();
+					
+					$uno = $consulta->fetchObject("Usuario");
+					
+					$objDelaRespuesta= new stdclass();
 
-				return $resultado;
-			// }
-			// else
-			// {
-			// 	return "El dato es invalido, debe ser un entero";
-			// }
-		
-		
+					if($uno == true){
+						$token= AutentificadorJWT::CrearToken($uno);						
+
+						$objDelaRespuesta->token = $token;
+						$objDelaRespuesta->respuesta = "Bienvenido";						
+						$objDelaRespuesta->status = true;
+
+						$retorno = $objDelaRespuesta;
+					}	
+					else
+						{
+							$objDelaRespuesta->respuesta = "Password Incorrecto";
+							$objDelaRespuesta->token = false;
+							$objDelaRespuesta->status = false;
+							
+							$retorno = $objDelaRespuesta;														
+						}
+					
+				}
+				else{
+					$retorno = false;
+				}
+								
+				return $retorno;
 		}
 
 	

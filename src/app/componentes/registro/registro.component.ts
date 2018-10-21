@@ -65,27 +65,15 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  // Registrar(){
-  //   alert("Usuario Registrado");
-  //   console.log(this.registroForm.get('email').value); 
-  // }
-
-
   Registrar(){
-    
-    console.log(this.registroForm);
-    console.log(this.registroForm.value);
-    console.log(this.registroForm.value.nombre);
-    
+
     var usuario = new Usuario(
                                 this.registroForm.value.nombre
                                 ,this.registroForm.value.usuario
                                 ,this.registroForm.value.email
                                 , this.registroForm.value.clave
                               );
-   // console.log(usuario);
-    
+
     this._registro.Registro(usuario)
     .subscribe(data =>{
       
@@ -102,8 +90,6 @@ export class RegistroComponent implements OnInit {
         }
     
     });
-
-   
   }
 
   getErrorMessage() {

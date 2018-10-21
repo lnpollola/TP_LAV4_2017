@@ -6,12 +6,6 @@ ini_set('include_path', 'C:\xampp\htdocs\Back_TPSALA');
 
 
 
-
-
-
-
-
-
 //require __DIR__ . '../vendor/autoload.php';
 
 require_once './vendor/autoload.php';
@@ -68,7 +62,7 @@ class AutentificadorJWT
 
             'data' => $datos,
 
-            'app'=> "TP POLLOLA VOGEL API PRO 2017 DELUXE EDITION"
+            'app'=> "TP SALA JUEGOS"
 
         );
 

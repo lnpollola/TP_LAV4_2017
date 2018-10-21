@@ -35,43 +35,6 @@ $app->add(function ($req, $res, $next) {
                 ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     });
 
-//<---------------------------------HELADO-------------------------------------->
-
-        //////////////////////////////////////ABM///////////////////////////////////////
-
-                //Alta de Helado
-                               
-                       
-                $app->post('/altaHelado',function (Request $request, Response $response,$args) {
-                        
-                        try	
-                        {
-
-                                $ArrayDeParametros = $request->getParsedBody();  
-                                
-                                $resultado = Helado::AltaHelado($ArrayDeParametros);
-
-                                if($resultado)
-                                {
-                                        $rta = "El Helado fue dado de alta correctamente";
-                                }
-                                else
-                                {
-                                        $rta = "No se ha dado de alta el Helado";
-                                }
-
-
-                                
-                        }                                        
-                        catch (Exception $e)
-                        {
-                                $rta = "Error al ejecutar la sentencia (detalle del error:".$e->getMessage();
-                        }
-                
-                return $response->withJson($rta);
-
-                });
-
                 
 
 //////////////////////////////////////ACCIONES//////////////////////////////////
@@ -80,11 +43,12 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
         return $response->withJson($usuarios);
         });
 
-        $app->post('/altaUsuarioJuegos',function (Request $request, Response $response,$args) {
-                        
+
+
+
+$app->post('/altaUsuarioJuegos',function (Request $request, Response $response,$args) {                        
                 try	
                 {
-
                         $ArrayDeParametros = $request->getParsedBody();  
                         
                         $resultado = Usuario::AltaUsuario($ArrayDeParametros);
@@ -98,8 +62,6 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
                                 $rta = "No se ha dado de alta el empleado";
                         }
 
-
-                        
                 }                                        
                 catch (Exception $e)
                 {
@@ -107,21 +69,36 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
                 }
         
 //                return $response->withJson($rta);
-        return $response->withJson($ArrayDeParametros);
-                
-});          
+        return $response->withJson($ArrayDeParametros);   
+        });          
+
+$app->post('/login', function ($request, $response, $args) {
+                try	
+                {                           
+                        $ArrayDeParametros = $request->getParsedBody();    
+                        
+                        $resultado = Usuario::SignIn($ArrayDeParametros);                        
+                }
+                catch (Exception $e)
+                        {
+                                $resultado = "Error al ejecutar la sentencia (detalle del error:".$e->getMessage();
+                        }
+                        
+                return $response->withJson($resultado);
+                    
+});
+
+
+
+
+
+
+
 //         /*****************************   TRAER BD   *******************************/
-                //Traer todos los helados
-                        $app->get('/TraerTodosLosHelados', function ($request, $response) {
-                        $helados = Helado::TraerTodosLosHelados();
-                        return $response->withJson($helados);
-                        });
-                
-                       // ->add(\MWparaAutentificar::class . ':VerificarUsuario')
 
                 //Traer un Usuario 
-                        $app->get('/TraerUnHelado/[{id}]', function ($request, $response, $args) {
-                        $uno = Helado::TraerUnHelado($args['id']);
+                        $app->get('/TraerUnUsuario/[{id}]', function ($request, $response, $args) {
+                        $uno = Usuario::TraerUnUsuario($args['id']);
                         return $response->withJson($uno);
                         });
 
@@ -131,15 +108,15 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
                         
                                                                 // $ArrayDeParametros = $request->getParsedBody();  
                                                                 
-                                                                // $resultado = Helado::BajaHel($ArrayDeParametros['id']);
-                                                                $resultado = Helado::BajaHel( $args['id']);
+                                                                // $resultado = Usuario::BajaHel($ArrayDeParametros['id']);
+                                                                $resultado = Usuario::BajaHel( $args['id']);
                                 
                                                                 return $response->withJson($resultado);
                                                                 
                         });
 
-                        $app->get('/TraerUnHeladoSabor/[{sabor}]', function ($request, $response, $args) {
-                                $uno = Helado::TraerUnHeladoSabor($args['sabor']);
+                        $app->get('/TraerUnUsuarioSabor/[{sabor}]', function ($request, $response, $args) {
+                                $uno = Usuario::TraerUnUsuarioSabor($args['sabor']);
                                 return $response->withJson($uno);
                                 });
         
