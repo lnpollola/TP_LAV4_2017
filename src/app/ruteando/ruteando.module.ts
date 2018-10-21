@@ -19,6 +19,7 @@ import { CabeceraComponent } from '../componentes/cabecera/cabecera.component';
 import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component';
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
+import { VerificarJWTService } from '../servicios/verificar-jwt.service';
 import { CardGameComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
@@ -31,7 +32,7 @@ const MiRuteo = [
 {path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
+{path: 'Principal' , component: PrincipalComponent, canActivate: [VerificarJWTService]},
 {path: 'Listado' , component: JugadoresListadoComponent},
 // {path: 'Paises' , component: ListadoDePaisesComponent},
 
