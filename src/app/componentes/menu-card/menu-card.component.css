@@ -17,6 +17,9 @@ img {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    text-align: center;
+    align-content: center;
+    margin: 24px 0 12px 0;
 }/* Add some padding inside the card container */
 
 .container {

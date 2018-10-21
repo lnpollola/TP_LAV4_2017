@@ -1,4 +1,49 @@
 <app-cabecera></app-cabecera>
+
+<div class="container" >
+<form  class="modal-content animate" (ngSubmit)="Entrar()" >
+    
+    <div class="container">
+
+      <div class="example-container">
+          <h2 class="display-3">Ingresar al Sistema</h2>
+          <br>
+      <div class="centro">    
+      <img class="img-thumbnail"   src="./assets/imagenes/login.png" alt="Avatar" >
+    </div>
+    <br><br>
+            <mat-form-field>
+                <input matInput placeholder="Ingrese Usuario"[(ngModel)]="usuario"  type="usuario" name="usuario" required>
+                <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
+              </mat-form-field>
+
+         <mat-form-field>
+          <input matInput placeholder="Ingrese e-mail"[(ngModel)]="mail" type="email" name="email" required>
+          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Ingrese contraseña" [(ngModel)]="clave"  name="password" [type]="hide ? 'password' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <!-- <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error> -->
+          </mat-form-field>  
+            <mat-checkbox >Recordar mis Datos</mat-checkbox>
+            <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button>
+         
+            <div *ngIf="!logeando" class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
+                  {{progresoMensaje}} - {{progreso}}%
+                </div>
+            </div>
+           
+    
+          </div>
+
+        </div>
+</form>
+</div>
+<!-- 
+
 <div class="container" >
     <div class="jumbotron" style="padding:50px;">
       <form action="return true;">
@@ -29,9 +74,9 @@
         <div class="container" style="background-color:#f1f1f1">
           <button type="button" class="cancelbtn">Cancelar</button>
           <button type="button" class="aceptbtn" routerLink="/Registro" >Registrarse</button>
-          <!-- <span class="psw">Te olvidaste <a href="#">la clave?</a></span> -->
+ 
         </div>
        
       </form>
     </div>
-  </div>
+  </div> -->

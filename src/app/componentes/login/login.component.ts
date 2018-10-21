@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 import {LoginService} from '../../servicios/login.service';
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   mail = '';
   clave= '';
   nombre= '';
-  usuario= '';
+  usuario='';
   progreso: number;
   progresoMensaje="esperando..."; 
   logeando=true;
@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   clase="progress-bar progress-bar-info progress-bar-striped ";
 
   constructor(
+    private builder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private _servicio:LoginService
@@ -40,6 +41,34 @@ export class LoginComponent implements OnInit {
      
   }
 
+  // email = new FormControl('', [
+  //   Validators.required, 
+  //   Validators.email,
+  //   Validators.minLength(5)
+  // ]);
+
+  
+  // password = new FormControl('', [
+  //   Validators.required
+  // ]);
+
+
+  // usuario = new FormControl('', [
+  //   Validators.required
+  // ]);
+  
+
+
+  // registroForm: FormGroup = this.builder.group({
+  //   usuario: this.usuario,
+  //   email: this.email,
+  //   clave: this.password
+  // });
+
+
+
+
+
   ngOnInit() {
   }
 
@@ -48,7 +77,7 @@ export class LoginComponent implements OnInit {
     
     
     
-    var loginDatos = new Usuario(this.nombre,this.usuario,this.mail, this.clave);
+    var loginDatos = new Usuario(this.nombre,  this.usuario,this.mail, this.clave);
   
  
 
