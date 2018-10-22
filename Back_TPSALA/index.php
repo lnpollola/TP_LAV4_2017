@@ -8,6 +8,7 @@ require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/clases/MWparaAutentificar.php';
 require __DIR__.'/clases/helados.php';
 require __DIR__.'/clases/usuarios.php';
+require __DIR__.'/clases/jugadas.php';
 // require __DIR__.'/clases/usuario.php';
 // require __DIR__.'/clases/vehiculo.php';
 // require __DIR__.'/clases/cochera.php';
@@ -43,7 +44,10 @@ $app->get('/TraerTodosLosUsuarios', function ($request, $response) {
         return $response->withJson($usuarios);
         });
 
-
+$app->get('/TraerTodasLasJugadas', function ($request, $response) {
+        $jugadas = Jugada::TraerTodasLasJugadas();
+        return $response->withJson($jugadas);
+        });
 
 
 $app->post('/altaUsuarioJuegos',function (Request $request, Response $response,$args) {                        
