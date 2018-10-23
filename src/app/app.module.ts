@@ -18,6 +18,7 @@ import { MiHttpService } from './servicios/mi-http/mi-http.service';
 // import { PaisesService } from './servicios/paises.service'; 
 
 import { JugadoresService } from './servicios/jugadores.service'; 
+import { JugadaService } from './servicios/jugada.service'; 
 // import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
@@ -57,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
 
 
 @NgModule({
@@ -120,6 +122,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
      MiHttpService,
     //  PaisesService,
     //  ArchivosJugadoresService,
+    JugadaService,
      JugadoresService],
   bootstrap: [AppComponent]
 })

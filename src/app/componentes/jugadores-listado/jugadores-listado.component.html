@@ -51,6 +51,7 @@
       </div>
 
   </mat-expansion-panel>
+
   <mat-expansion-panel (opened)="TraerGanadores()">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -100,6 +101,60 @@
       
       </div>
   </mat-expansion-panel>
+
+  <mat-expansion-panel (opened)="TraerJugadas()">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Listado de partidas
+      </mat-panel-title>
+      <mat-panel-description>
+        Abrir para ver listado de Partidas Jugadas
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="listadoCentrado" style="padding-left: 5%; padding-right: 5%;">
+      <table mat-table [dataSource]="listado" class="lessons-table mat-elevation-z8 table table-condensed" style="align-content: center;">
+        <!-- Position Column -->
+        <ng-container matColumnDef="password">
+          <th mat-header-cell *matHeaderCellDef> N°Jugada </th>
+          <td mat-cell *matCellDef="let element">
+              <p >
+                {{element.id_jugada}}
+              </p>
+            </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell class="description-cell" *matCellDef="let element"> {{element.Nombre_juego}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Usuario </th>
+          <td mat-cell *matCellDef="let element"> {{element.Nombre_usuario}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="usuario">
+          <th mat-header-cell *matHeaderCellDef> Resultado </th>
+          <td mat-cell *matCellDef="let element">
+              <p >
+                {{element.Resultado}}
+              </p>
+            </td>
+        </ng-container>
+
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      
+      </div>
+  </mat-expansion-panel>
+
 </mat-accordion>
 
 

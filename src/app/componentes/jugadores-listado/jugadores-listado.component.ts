@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadoresService } from '../../servicios/jugadores.service';
+import { JugadaService } from '../../servicios/jugada.service';
 import { stringify } from 'querystring';
 
 
@@ -35,10 +36,12 @@ export class JugadoresListadoComponent implements OnInit {
   panelOpenState = false;
   displayedColumns: string[] = ['id', 'nombre', 'usuario', 'password'];
 
-  miJugadoresServicio:JugadoresService
-  
-    constructor(serviceJugadores:JugadoresService) {
+  miJugadoresServicio:JugadoresService;
+  misJugadasService:JugadaService;
+
+    constructor(serviceJugadores:JugadoresService, serviceJugadas:JugadaService) {
       this.miJugadoresServicio = serviceJugadores;
+      this.misJugadasService = serviceJugadas;
       
     }
 
@@ -70,6 +73,14 @@ export class JugadoresListadoComponent implements OnInit {
 
    }
     
+   TraerJugadas()
+  {
+      this.misJugadasService.ServiceTraerTodasLasJugadas().subscribe(data => {   
+        this.listado = JSON.parse(data._body);
+      //  console.log(this.listado);
+      }
+      )
+  }
 
   // TraerPerdedores()
   // {
