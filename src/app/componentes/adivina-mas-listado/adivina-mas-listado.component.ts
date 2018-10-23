@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Juego } from '../../clases/juego';
 import { JuegoAdivina  } from '../../clases/juego-adivina';
 import { JugadaService } from '../../servicios/jugada.service';
+import { JwtHelperService  } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-adivina-mas-listado',
@@ -30,18 +31,28 @@ export class AdivinaMasListadoComponent implements OnInit {
       intGano = 0;
     }
 
+    const helper = new JwtHelperService();
+      var token = window.localStorage.getItem("token");
+      const decodedToken = helper.decodeToken(token);
+      var jugador = decodedToken.data.Usuario;
+
+
+
       var juegoArray = new JuegoAdivina(
                               juego.nombre,
                               intGano,
-                              juego.jugador
-                              
-                              
+                              jugador
                                 );
-      // const decodedToken = helper.decodeToken(this.datosToken.token);
+
+  
+
+      // var nombreUsuario = JSON.parse(decodedToken).usuario;
+      // console.log(nombreUsuario);
       // const expirationDate = helper.getTokenExpirationDate(this.datosToken.token);
       // const isExpired = helper.isTokenExpired(this.datosToken.token);
   
-      // console.log(decodedToken);
+      console.log(decodedToken);
+      console.log(decodedToken.data.Usuario);
       // console.log(expirationDate);
       // console.log(isExpired);
 
