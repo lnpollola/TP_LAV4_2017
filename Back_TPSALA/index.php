@@ -50,6 +50,33 @@ $app->get('/TraerTodasLasJugadas', function ($request, $response) {
         });
 
 
+$app->post('/altaJugada',function (Request $request, Response $response,$args) {                        
+        try	
+        {
+                $ArrayDeParametros = $request->getParsedBody();  
+                
+                $resultado = Jugada::AltaJugada($ArrayDeParametros);
+
+                if($resultado)
+                {
+                        $rta = "La Jugada fue dada de alta correctamente";
+                }
+                else
+                {
+                        $rta = "No se ha dado de alta la jugada";
+                }
+
+        }                                        
+        catch (Exception $e)
+        {
+                $rta = "Error al ejecutar la sentencia (detalle del error:".$e->getMessage();
+        }
+
+//                return $response->withJson($rta);
+return $response->withJson($ArrayDeParametros);   
+});          
+
+
 $app->post('/altaUsuarioJuegos',function (Request $request, Response $response,$args) {                        
                 try	
                 {
