@@ -1,5 +1,5 @@
 export abstract class Jugada {
-  public Nombre_juego = 'Sin Nombre_juego';
+  public Nombre_juego = '';
   public Nombre_usuario: string;
   public Resultado = false;
 

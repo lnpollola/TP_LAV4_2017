@@ -89,18 +89,19 @@ class Jugada
 //--METODOS DE CLASE
 
 	///////////////////////////////////ABM//////////////////////////////////////
-		public static function AltaJugada($usuario)
+		public static function AltaJugada($jugada)
 		{
 			
-			if( sizeof($usuario) == 3 )
+			if( sizeof($jugada) == 3 )
 			{
 					$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
-					$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO jugadas(nombre_juego,nombre_usuario,resultado) VALUES (:nombre_juego,:nombre_usuario,:resultado)');
+					$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO jugadas(nombre_juego,nombre_usuario,resultado) VALUES (:nombre,:jugador,:gano)');
 			
 				//parametros
-					$consulta->bindvalue(':nombre_juego', $usuario['nombre_juego'], PDO::PARAM_STR);
-					$consulta->bindvalue(':nombre_usuario', $usuario['nombre_usuario'] , PDO::PARAM_STR);
-					$consulta->bindvalue(':resultado', $usuario['resultado'] , PDO::PARAM_STR);
+					$consulta->bindvalue(':nombre', $jugada['nombre'], PDO::PARAM_STR);
+					$consulta->bindvalue(':jugador', $jugada['jugador'] , PDO::PARAM_STR);
+					$consulta->bindvalue(':gano', $jugada['gano'] , PDO::PARAM_INT);
+				
 					
 					$resultado = $consulta->Execute();			
 			}		

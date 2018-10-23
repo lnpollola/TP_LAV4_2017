@@ -13,7 +13,7 @@ export class RegistroService {
 
   public Registro(datos): Observable<any>
   {
-    console.log(datos);
+    // console.log(datos);
 
     return this._generico.httpPost("altaUsuarioJuegos",datos)
         .pipe(data =>{return data;}); 

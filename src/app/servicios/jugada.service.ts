@@ -23,6 +23,13 @@ export class JugadaService {
       .pipe(data => { return data; });
     }
 
+    public ServiceAltaJugada(datos):Observable<any> {
+      
+      return this.miHttp.httpPost("altaJugada",datos)
+      .pipe(data =>{return data;}); 
+
+      }
+
   // public ServiceTraerGanadores():Observable<any> {
   //   return this.miHttp.httpGet("TraerTodosLosUsuarios", {} )
   //     .pipe( map( data => { 
