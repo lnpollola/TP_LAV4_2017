@@ -37,7 +37,7 @@ export class AdivinaElNumeroComponent implements OnInit {
       
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
-      this.contador = 0;
+      this.nuevoJuego.numeroSecreto=0;
 
     }else{
 
@@ -59,7 +59,7 @@ export class AdivinaElNumeroComponent implements OnInit {
           mensaje=" intentos y nada.";
           break;
           case 6:
-          mensaje="Afortunado en el amor.";
+          mensaje="Ultima posibilidad.";
           break;
       
         default:
@@ -68,6 +68,13 @@ export class AdivinaElNumeroComponent implements OnInit {
       }
       this.MostarMensaje("#"+this.contador+" "+mensaje+" ayuda :"+this.nuevoJuego.retornarAyuda());
      
+
+    }
+
+    if(this.contador == 7) {
+      this.enviarJuego.emit(this.nuevoJuego);
+      this.MostarMensaje("PERDISTE",false);
+      this.nuevoJuego.numeroSecreto=0;
 
     }
     // console.info("numero Secreto:",this.nuevoJuego.gano);  
