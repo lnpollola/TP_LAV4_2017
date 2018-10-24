@@ -60,13 +60,13 @@ export class JugadoresListadoComponent implements OnInit {
 
   TraerGanadores()
   {
-    this.miJugadoresServicio.ServiceTraerTodosLosJugadores()
+    this.misJugadasService.ServiceTraerTodasLasJugadas()
     .subscribe(
         data => 
         {   
           this.listado = JSON.parse(data._body);
           this.listado =this.listado
-                              .filter(data => data.id_usuario === 1 ); 
+                              .filter(data => data.Resultado === 1 ); 
           // console.log(this.listado);
         }
     )
