@@ -9,12 +9,13 @@ export class JuegoAgilidad extends Juego {
   eleccionUsuario:number;
   solucion:number;
 
-   constructor() {
 
-     super();
-     this.cargarSolucion();
+  constructor(nombre?: string, gano?: boolean, jugador?:string) {
+    super("Juego Agilidad",gano,jugador);
+    this.cargarSolucion();
+  
+  }
 
-    }
 
   cargarSolucion() : void {
 

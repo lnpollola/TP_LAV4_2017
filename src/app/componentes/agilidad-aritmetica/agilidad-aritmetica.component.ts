@@ -4,6 +4,7 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
 
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -24,12 +25,13 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
   }
 
-  constructor() {
+  constructor( ) {
     //  this.ocultarVerificar=true;
      this.Tiempo=15; 
     this.NuevoJuego();
     console.info(this.nuevoJuego );  
-    console.info("Inicio agilidad");  
+    console.info("Inicio agilidad"); 
+    
   }
 
   NuevoJuego() {
@@ -43,6 +45,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.verificar();
         this.ocultarVerificar=true;
         this.Tiempo=15;
+        this.enviarJuego.emit(this.nuevoJuego);
       }
       }, 900);
       this.nuevoJuego = new JuegoAgilidad();
@@ -53,12 +56,14 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
   verificar()
   {
-    // 
-    // clearInterval(this.repetidor);
-    this.nuevoJuego.verificar();
+    
+    // this.nuevoJuego.verificar();
     if (this.nuevoJuego.verificar()) 
     {
       this.ocultarVerificar=true;
+      this.nuevoJuego.gano=true;
+      this.enviarJuego.emit(this.nuevoJuego);
+      clearInterval(this.repetidor);
       this.MostarMensaje("PERFECTO" , true);
     }
     else
@@ -83,8 +88,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
       x.className = x.className.replace("show", "");
      }, 3000);
   
-   }  
-
+   }
+   
+  
 
 
 }

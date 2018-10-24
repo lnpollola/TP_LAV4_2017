@@ -50,7 +50,7 @@ export class TatetiComponent implements OnInit {
       if(this.miJuego.gano && this.ganador != "pc")
       {
         this.ganador="jugador";
-        console.log("ganaste");
+        console.log("GANASTE");
       }
 
       if(!this.miJuego.gano)
@@ -78,7 +78,7 @@ export class TatetiComponent implements OnInit {
       }
       if(this.miJuego.gano){
         this.ganador="pc";
-        console.log("perdiste");
+        console.log("PERDISTE");
         this.turno="jugador";
 
       }

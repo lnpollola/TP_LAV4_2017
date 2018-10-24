@@ -92,8 +92,8 @@ class Jugada
 		public static function AltaJugada($jugada)
 		{
 			
-			if( sizeof($jugada) == 3 )
-			{
+			// if( sizeof($jugada) == 3 )
+			// {
 					$objetoAcceso = AccesoDatos::DameUnObjetoAcceso();
 					$consulta = $objetoAcceso->RetornarConsulta('INSERT INTO jugadas(nombre_juego,nombre_usuario,resultado) VALUES (:nombre,:jugador,:gano)');
 			
@@ -104,11 +104,11 @@ class Jugada
 				
 					
 					$resultado = $consulta->Execute();			
-			}		
-			else
-			{
-					$resultado = false;
-			}
+			// }		
+			// else
+			// {
+			// 		$resultado = false;
+			// }
 
 
 			return $resultado;	
