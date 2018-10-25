@@ -21,11 +21,13 @@ import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-goo
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { VerificarJWTService } from '../servicios/verificar-jwt.service';
 import { CardGameComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
+import { MayormenorMasListadoComponent } from '../componentes/mayormenor-mas-listado/mayormenor-mas-listado.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { PptMasListadoComponent } from '../componentes/ppt-mas-listado/ppt-mas-listado.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { TatetiMasListadoComponent } from '../componentes/tateti-mas-listado/tateti-mas-listado.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+
 
 const MiRuteo = [
 {path: 'Jugadores' , component: JugadoresListadoComponent},
@@ -46,7 +48,7 @@ children:
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Anagrama' , component: AnagramaComponent},
-      {path: 'MayorOMenor' , component: CardGameComponent},
+      {path: 'MayorOMenor' , component: MayormenorMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'PPT' , component: PptMasListadoComponent},
       {path: 'Tateti' , component: TatetiMasListadoComponent}

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input , Output , EventEmitter } from '@angular/core';
 import { DeckcardsService } from '../../clases/deckcards.service';
 import { MyCustomDeckofApiType } from '../../clases/deckinterface';
 import { cardsInterface } from '../../clases/cardsInterface';
+import { JuegoMayorMenor  } from '../../clases/juego-mayor-menor';
+
 
 @Component({
   selector: 'app-mayor-omenor',
@@ -11,14 +13,19 @@ import { cardsInterface } from '../../clases/cardsInterface';
 })
 export class CardGameComponent implements OnInit 
 {
+  
   public actionsBtn=true;
   public loader=true;
   public lowCards = ["ACE",2,3,4,5,6,7];
   public highCards = [8,9,10,"JACK","QUEEN","KING"];
   public BlankCard = "./assets/imagenes/hideCard.png";
   public deck_id:string;
+  public juegoMayormenor:JuegoMayorMenor;
   public totalcurd:number;
   Dcards=[];
+
+  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
+
   constructor(private deckcardsService:DeckcardsService) { }
 
   public cantNumeros:number = 2;
@@ -42,7 +49,7 @@ drawCards(deck_id)
         {
           	this.totalcurd=cds.remaining;
             this.message="Inicio de Juego";
-            
+            this.juegoMayormenor =  new JuegoMayorMenor();
             
             for(let i=0; i< this.cantNumeros; i++ )
             {
@@ -84,42 +91,6 @@ changeCard(dcards,type)
 {
   console.info(dcards);
 
-  // for(var i=0;i<this.cantNumeros;i++)
-  // {
-  //     if(dcards[i].viewCard===false)
-  //       {
-  //         dcards[i].viewCard=true;
-  //         dcards[i].BlankCard=dcards[i].images.png;
-
-  //         this.Dcards=dcards;
-
-  //         if(type=="H" && this.checkHighLow(dcards[i].value)==false)
-  //         {
-  //           this.message="You are right";
-  //           this.fcard=true;
-  //         }
-
-  //         if(type=="H" && this.checkHighLow(dcards[i].value)==true)
-  //         {
-  //           this.message="You are Wrong";
-  //           this.fcard=false;
-  //         }
-
-  //         if(type=="L" && this.checkHighLow(dcards[i].value)==false)
-  //         {
-  //           this.message="You are Wrong";
-  //           this.fcard=false;
-  //         }
-
-  //         if(type=="L" && this.checkHighLow(dcards[i].value)==true)
-  //         {
-  //           this.message="You are right";
-  //           this.fcard=true;
-  //         }
-  //         // return;
-
-  //       }
-  //     }   
   
 
   if(dcards[0].viewCard===false)
@@ -129,22 +100,22 @@ changeCard(dcards,type)
     this.Dcards=dcards;
     if(type=="H" && this.checkHighLow(dcards[0].value)==false)
     {
-      this.message="You are right";
+      this.message="CORRECTO";
       this.fcard=true;
     }
     if(type=="H" && this.checkHighLow(dcards[0].value)==true)
     {
-      this.message="You are Wrong";
+      this.message="ERROR";
       this.fcard=false;
     }
     if(type=="L" && this.checkHighLow(dcards[0].value)==false)
     {
-      this.message="You are Wrong";
+      this.message="ERROR";
       this.fcard=false;
     }
     if(type=="L" && this.checkHighLow(dcards[0].value)==true)
     {
-      this.message="You are right";
+      this.message="CORRECTO";
       this.fcard=true;
     }
       return;
@@ -159,38 +130,44 @@ changeCard(dcards,type)
 
       if(type=="H" && this.checkHighLow(dcards[1].value)==false)
       {
-        this.message="You are right";
+        this.message="CORRECTO";
         this.scard=true;
       }
 
       if(type=="H" && this.checkHighLow(dcards[1].value)==true)
       {
-        this.message="You are Wrong";
+        this.message="ERROR}";
         this.scard=false;
       }
 
       if(type=="L" && this.checkHighLow(dcards[1].value)==false)
       {
-        this.message="You are Wrong";
+        this.message="ERROR";
         this.scard=false;
       }
 
       if(type=="L" && this.checkHighLow(dcards[1].value)==true)
       {
-        this.message="You are right";
+        this.message="CORRECTO";
         this.scard=true;
       }
 
       if(this.fcard==true && this.scard==true)
         {
-          this.message="You Win";
-          this.loader=true;
-          this.drawCards(this.deck_id);
+          this.actionsBtn=false;
+          this.message="Ganaste";
+          // this.loader=true;
+          this.juegoMayormenor.gano=true;
+          this.enviarJuego.emit(this.juegoMayormenor);
+       
+          
         }
       else
         {
           this.actionsBtn=false;
-          this.message="Better Luck Next Time";
+          this.message="Mejor suerte la proxima";
+          this.juegoMayormenor.gano=false;
+          this.enviarJuego.emit(this.juegoMayormenor);
         }
              
       }
