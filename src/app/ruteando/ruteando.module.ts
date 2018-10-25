@@ -24,6 +24,7 @@ import { CardGameComponent } from '../componentes/mayor-omenor/mayor-omenor.comp
 import { PptComponent } from '../componentes/ppt/ppt.component';
 import { PptMasListadoComponent } from '../componentes/ppt-mas-listado/ppt-mas-listado.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { TatetiMasListadoComponent } from '../componentes/tateti-mas-listado/tateti-mas-listado.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 
 const MiRuteo = [
@@ -48,7 +49,7 @@ children:
       {path: 'MayorOMenor' , component: CardGameComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'PPT' , component: PptMasListadoComponent},
-      {path: 'Tateti' , component: TatetiComponent}
+      {path: 'Tateti' , component: TatetiMasListadoComponent}
 
     ]
 },

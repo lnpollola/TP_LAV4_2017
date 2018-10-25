@@ -6,8 +6,8 @@ export class Tateti extends Juego {
 
 public tablero=[];  
 
-constructor(jugador:string){
-    super("tateti",false,jugador);
+constructor(nombre?: string, gano?: boolean, jugador?:string){
+    super("Tateti",gano,jugador);
 
     for(let i:number=0; i< 3 ;i++)
     {

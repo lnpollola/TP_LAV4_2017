@@ -1,9 +1,10 @@
 
 <div class="container">
     <h1> Ta-Te-Ti </h1> 
+    <button mat-button mat-raised-button color="accent" (click)="ReiniciarJuego()">Jugar de nuevo</button> 
+ 
     <div class="juego">
-                    <button (click)="ReiniciarJuego()">Jugar de nuevo</button>
-    <div class="tablero">
+      <div class="tablero">
   
       <tr *ngFor="let filas of miJuego.tablero">
         <td *ngFor="let casilla of filas ">  
@@ -17,6 +18,8 @@
 
     <h1> Turno: {{turno}} </h1><img class="imgInfo" *ngIf="this.turno =='jugador'" src="./assets/imagenes/casilla1.png" >
                       <img class="imgInfo" *ngIf="this.turno =='pc'" src="./assets/imagenes/casilla2.png" >
-  </div>
+  
+                      <div class="mensaje"  > <h1>{{mensaje}}</h1></div>
+                    </div>
   </div>
   </div>

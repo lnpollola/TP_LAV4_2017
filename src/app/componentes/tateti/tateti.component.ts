@@ -10,10 +10,12 @@ import { NgIf } from '@angular/common';
 })
 export class TatetiComponent implements OnInit {
 
+  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
   miJuego:Tateti;
   valorUsuario:string;
   turno:string;
   ganador:string;
+  mensaje: string=" ";
   
 
   constructor() {
@@ -50,7 +52,8 @@ export class TatetiComponent implements OnInit {
       if(this.miJuego.gano && this.ganador != "pc")
       {
         this.ganador="jugador";
-        console.log("GANASTE");
+        this.mensaje="¡¡Ganaste!!";
+        this.enviarJuego.emit(this.miJuego);
       }
 
       if(!this.miJuego.gano)
@@ -76,10 +79,12 @@ export class TatetiComponent implements OnInit {
         }
 
       }
+
       if(this.miJuego.gano){
         this.ganador="pc";
-        console.log("PERDISTE");
         this.turno="jugador";
+        this.mensaje="¡¡Perdiste!!";
+        this.enviarJuego.emit(this.miJuego);
 
       }
 
@@ -93,6 +98,7 @@ export class TatetiComponent implements OnInit {
   ReiniciarJuego()
   {
     this.miJuego=new Tateti("jug");
+    this.mensaje = "";
     let r= Math.round(Math.random()); 
  
     if(r==0)
