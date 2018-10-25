@@ -22,6 +22,7 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { VerificarJWTService } from '../servicios/verificar-jwt.service';
 import { CardGameComponent } from '../componentes/mayor-omenor/mayor-omenor.component';
 import { PptComponent } from '../componentes/ppt/ppt.component';
+import { PptMasListadoComponent } from '../componentes/ppt-mas-listado/ppt-mas-listado.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 
@@ -46,7 +47,7 @@ children:
       {path: 'Anagrama' , component: AnagramaComponent},
       {path: 'MayorOMenor' , component: CardGameComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'PPT' , component: PptComponent},
+      {path: 'PPT' , component: PptMasListadoComponent},
       {path: 'Tateti' , component: TatetiComponent}
 
     ]

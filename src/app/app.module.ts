@@ -58,6 +58,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material';
 import {MatIconModule} from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { PptMasListadoComponent } from './componentes/ppt-mas-listado/ppt-mas-listado.component';
 
 
 
@@ -88,7 +89,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     SexoPipe,
     CardGameComponent,
     PptComponent,
-    TatetiComponent
+    TatetiComponent,
+    PptMasListadoComponent
   ],
   imports: [
     BrowserModule,

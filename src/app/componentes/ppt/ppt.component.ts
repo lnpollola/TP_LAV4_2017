@@ -29,11 +29,14 @@ export class PptComponent implements OnInit {
       this.puntosPc=this.nuevoPpt.puntosPc;
       this.puntosUsuario=this.nuevoPpt.puntosJugador;
       this.seleccionPc=this.nuevoPpt.seleccionPc;
+
       if(this.nuevoPpt.verificar())
       {
         this.TerminarJuego();
       }
-     }else{
+     }
+     else
+     {
        this.mensaje="Juego Terminado. Volve a empezar para seguir jugando."
      }
       
@@ -48,7 +51,9 @@ export class PptComponent implements OnInit {
      this.seleccionUsuario="";
      this.seleccionPc="";
    }
+
    private TerminarJuego(){
+    console.log("Estoy en terminar juego", this.nuevoPpt);
     this.enviarJuego.emit(this.nuevoPpt);
     if(this.nuevoPpt.gano)
     {

@@ -6,8 +6,8 @@
 
 .pptImagen
 {
-    height: 150px;
-    width: 125px;
+    height: 120px;
+    width: 100px;
     border-width: 2px;
     border-style: solid;
     border-color: black;
@@ -64,7 +64,7 @@ body
     border-width: 1px;
     border-color: antiquewhite;
     padding-left: 3px;
-    padding-right: 3px;
+    /* padding-right: 3px; */
     padding-bottom: 3px;
     padding-top: 3px;  
     
@@ -76,10 +76,8 @@ body
     
     background-color: black;
     color: red;
-    font-size: 200px;
+    font-size: 130px;
     margin-bottom: 2px;
-   
-
 }
 
 label{
@@ -92,12 +90,12 @@ label{
     
 }
 .container-img{
-    position: relative;
+    position: left;
     width: 45%;
     height: 300px;
     display: block;
-    float: left;
-    border-style: solid;
+    float: right;
+    /* border-style: solid; */
     border-color: rgb(91, 186, 230);;
     padding-left: 3px;
     padding-right: 3px;
@@ -111,9 +109,9 @@ label{
 
 .container-img img{
     border-width: 2px;
-    border-style: solid;
+    /* border-style: solid; */
     border-color: black;
-    float: left;
+    float: right;
     position: relative;
     margin-top: 25px;
     margin-left: 1px;
