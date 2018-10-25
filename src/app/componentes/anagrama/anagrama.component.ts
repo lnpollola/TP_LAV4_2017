@@ -27,7 +27,7 @@ export class AnagramaComponent implements OnInit {
   constructor() {
     this.miJuego = new JuegoAnagrama();
     this.Tiempo=15; 
-    this.miJuego.jugador = "nn";
+    // this.miJuego.jugador = "nn";
     this.ocultarVerificar=true;
    }
 
@@ -64,8 +64,6 @@ export class AnagramaComponent implements OnInit {
     this.ocultarVerificar=true;
     this.enviarJuego.emit(this.miJuego);
     this.Tiempo=0;
-    console.log("ok verificado");
-     console.log(this.miJuego);
      this.MostarMensaje("PERFECTO" , true);
     
    }
@@ -73,8 +71,6 @@ export class AnagramaComponent implements OnInit {
    {
     this.ocultarVerificar=false;
    this.enviarJuego.emit(this.miJuego);
-   console.log("no verificado");
-    console.log(this.miJuego);
     this.MostarMensaje("ERROR" , false);
    }
  }

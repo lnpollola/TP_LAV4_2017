@@ -30,27 +30,27 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 
 
 const MiRuteo = [
-{path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
-{path: 'QuienSoy' , component: QuienSoyComponent},
-{path: 'Registro' , component: RegistroComponent},
+{path: 'Jugadores' , component: JugadoresListadoComponent,canActivate: [VerificarJWTService]},
+{path: '' , component: PrincipalComponent,canActivate: [VerificarJWTService]},
+{path: 'Login' , component: LoginComponent,canActivate: [VerificarJWTService]},
+{path: 'Mapa' , component: MapaDeGoogleComponent,canActivate: [VerificarJWTService]},
+{path: 'QuienSoy' , component: QuienSoyComponent,canActivate: [VerificarJWTService]},
+{path: 'Registro' , component: RegistroComponent,canActivate: [VerificarJWTService]},
 {path: 'Principal' , component: PrincipalComponent, canActivate: [VerificarJWTService]},
-{path: 'Listado' , component: JugadoresListadoComponent},
+{path: 'Listado' , component: JugadoresListadoComponent,canActivate: [VerificarJWTService]},
 // {path: 'Paises' , component: ListadoDePaisesComponent},
 
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-      {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Anagrama' , component: AnagramaComponent},
-      {path: 'MayorOMenor' , component: MayormenorMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'PPT' , component: PptMasListadoComponent},
+     [{path: '' , component: MenuCardComponent,canActivate: [VerificarJWTService]},
+     {path: 'Adivina' , component: AdivinaElNumeroComponent,canActivate: [VerificarJWTService]},
+      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent,canActivate: [VerificarJWTService]},
+      {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent,canActivate: [VerificarJWTService]},
+      {path: 'Anagrama' , component: AnagramaComponent,canActivate: [VerificarJWTService]},
+      {path: 'MayorOMenor' , component: MayormenorMasListadoComponent,canActivate: [VerificarJWTService]},
+      {path: 'Agilidad' , component: AgilidadAritmeticaComponent,canActivate: [VerificarJWTService]},
+      {path: 'PPT' , component: PptMasListadoComponent,canActivate: [VerificarJWTService]},
       {path: 'Tateti' , component: TatetiMasListadoComponent}
 
     ]

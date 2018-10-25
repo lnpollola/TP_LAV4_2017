@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Juego } from '../../clases/juego';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { Juego } from '../../clases/juego';
 export class CabeceraComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private router: Router) { }
   navbarOpen = false;
   ngOnInit() {
   }
@@ -18,5 +19,11 @@ export class CabeceraComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
+
+  Desloguear()
+  {
+    localStorage.setItem('token', null);
+    this.router.navigate(['/Login']);
+  }
 
 }

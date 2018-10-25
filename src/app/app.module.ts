@@ -61,6 +61,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PptMasListadoComponent } from './componentes/ppt-mas-listado/ppt-mas-listado.component';
 import { TatetiMasListadoComponent } from './componentes/tateti-mas-listado/tateti-mas-listado.component';
 import { MayormenorMasListadoComponent } from './componentes/mayormenor-mas-listado/mayormenor-mas-listado.component';
+import { AnagramaMasListadoComponent } from './componentes/anagrama-mas-listado/anagrama-mas-listado.component';
 
 
 
@@ -94,7 +95,8 @@ import { MayormenorMasListadoComponent } from './componentes/mayormenor-mas-list
     TatetiComponent,
     PptMasListadoComponent,
     TatetiMasListadoComponent,
-    MayormenorMasListadoComponent
+    MayormenorMasListadoComponent,
+    AnagramaMasListadoComponent
   ],
   imports: [
     BrowserModule,
