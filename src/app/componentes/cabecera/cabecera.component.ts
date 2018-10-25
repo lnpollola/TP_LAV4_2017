@@ -23,7 +23,6 @@ export class CabeceraComponent implements OnInit {
   Desloguear()
   {
     localStorage.setItem('token', null);
-    this.router.navigate(['/Login']);
   }
 
 }

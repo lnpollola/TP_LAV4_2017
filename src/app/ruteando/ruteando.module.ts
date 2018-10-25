@@ -32,7 +32,7 @@ import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 const MiRuteo = [
 {path: 'Jugadores' , component: JugadoresListadoComponent,canActivate: [VerificarJWTService]},
 {path: '' , component: PrincipalComponent,canActivate: [VerificarJWTService]},
-{path: 'Login' , component: LoginComponent,canActivate: [VerificarJWTService]},
+{path: 'Login' , component: LoginComponent},
 {path: 'Mapa' , component: MapaDeGoogleComponent,canActivate: [VerificarJWTService]},
 {path: 'QuienSoy' , component: QuienSoyComponent,canActivate: [VerificarJWTService]},
 {path: 'Registro' , component: RegistroComponent,canActivate: [VerificarJWTService]},
@@ -43,7 +43,7 @@ const MiRuteo = [
 { path: 'Juegos' ,
 component: JuegosComponent ,
 children:
-     [{path: '' , component: MenuCardComponent,canActivate: [VerificarJWTService]},
+     [{path: '' , component: MenuCardComponent},
      {path: 'Adivina' , component: AdivinaElNumeroComponent,canActivate: [VerificarJWTService]},
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent,canActivate: [VerificarJWTService]},
       {path: 'AgilidadMasListado' , component: AgilidadMasListadoComponent,canActivate: [VerificarJWTService]},
